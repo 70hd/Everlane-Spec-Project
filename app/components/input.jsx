@@ -11,6 +11,7 @@ const Input = ({
   label
 }) => {
   const errorId = `${name}-error`;
+  console.log(version)
   const commonProps = {
     id,
     name,
@@ -18,7 +19,7 @@ const Input = ({
     onChange,
     placeholder,
     className: `border ${red ? "border-red-500/50" : "border-black/50"} text-black rounded-none p-3 w-full items-start justify-start ${
-      version === "message" ? "h-[155px]" : ""
+      version.toLowerCase() === "message" ? "h-[155px]" : ""
     }`,
     "aria-invalid": !!error,
     "aria-describedby": error ? errorId : undefined,
@@ -28,7 +29,7 @@ const Input = ({
     <section className="flex flex-col gap-3 w-full">
       {label && <label className="w-full" htmlFor={id}>{label}</label>}
       {error && <p id={`${id}-error`} className="w-full text-red-500">{error}</p>}
-      {version === "message" ? (
+      {version.toLowerCase() === "message" ? (
         <textarea {...commonProps} />
       ) : (
         <input

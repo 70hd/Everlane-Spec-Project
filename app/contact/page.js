@@ -5,7 +5,7 @@ import Form from "../components/form";
 import Image from "next/image";
 import { CONTACT_TYPES } from "../../data/contactTypes";
 import ContactMethod from "../components/contact-method";
-import SignUpForm from "../components/signupForm"
+import SignUpForm from "../components/signupForm";
 
 const Page = () => {
   const { authData, setAuthData } = useAuth();
@@ -29,10 +29,13 @@ const Page = () => {
       setFormData((prev) => ({ ...prev, email: authData.email }));
     }
   }, []);
-  
+
   const handleSuccess = async (data) => {
-    console.log("user data: ", data); 
-  }
+    console.log("user data: ", data);
+    
+    // After handling success, trigger the form submission again
+    handleSubmit(); // No data is passed here
+  };
 
   const createUser = async () => {
     if (
@@ -59,22 +62,18 @@ const Page = () => {
         data = {};
       }
       if (!response.ok) {
-        setError((prev) => {
-          return {
-            ...prev,
-            final: data.error || "Something went wrong.",
-          };
-        });
+        setError((prev) => ({
+          ...prev,
+          final: data.error || "Something went wrong.",
+        }));
       } else {
         console.log("Message submitted successfully");
       }
     } catch (error) {
-      setError((prev) => {
-        return {
-          ...prev,
-          final: error,
-        };
-      });
+      setError((prev) => ({
+        ...prev,
+        final: error,
+      }));
     } finally {
       setLoading(false);
       setFormData({
@@ -87,20 +86,37 @@ const Page = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault(); // Only prevent default if it's an event
     createUser();
   };
+
   const FORMS = [
-    { label: "First Name", placeholder:"Joe",name: "firstName", type: "text" },
-    { label: "Last Name", placeholder:"Ford",name: "lastName", type: "text" },
-    { label: "Email", placeholder:"Joeford@gmail.com",name: "email", type: "email" },
-    { label: "Message",placeholder:"I wanted to...", name: "message", type: "text" },
+    {
+      label: "First Name",
+      placeholder: "Joe",
+      name: "firstName",
+      type: "text",
+    },
+    { label: "Last Name", placeholder: "Ford", name: "lastName", type: "text" },
+    {
+      label: "Email",
+      placeholder: "Joeford@gmail.com",
+      name: "email",
+      type: "email",
+    },
+    {
+      label: "Message",
+      placeholder: "I wanted to...",
+      name: "message",
+      type: "text",
+    },
   ];
 
   return (
     <main className="w-full  items-center dynamic-padding justify-center h-fit flex flex-col gap-9">
       <div className="w-full max-w-[606px]">
-        {/* <Form
+        <SignUpForm
+          onSuccess={handleSuccess}
           FORMS={FORMS}
           title={"How to contact Everlane Client Services"}
           subTitle={
@@ -112,13 +128,11 @@ const Page = () => {
           setFormData={setFormData}
           error={error}
           setError={setError}
-          setLoading
-        /> */}
-         <SignUpForm onSuccess={handleSuccess}/>
+          setLoading={setLoading}
+        />
       </div>
       <div className="w-full flex gap-9 dynamic-y-padding">
-        <ContactMethod data={CONTACT_TYPES}/>
-       
+        <ContactMethod data={CONTACT_TYPES} />
       </div>
     </main>
   );
