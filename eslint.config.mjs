@@ -12,13 +12,3 @@ const compat = new FlatCompat({
 const eslintConfig = [...compat.extends("next/core-web-vitals")];
 
 export default eslintConfig;
-// import { FlatCompat } from "@eslint/eslintrc";
-
-// const compat = new FlatCompat();
-
-// // Using the flat config format without a parser key
-// const eslintConfig = [
-//   compat.extends("next"),
-// ];
-
-// export default eslintConfig;
