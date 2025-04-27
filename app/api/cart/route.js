@@ -1,4 +1,3 @@
-import { redirect } from "next/dist/server/api-utils";
 import prisma from "../../../lib/prisma";
 
 export async function POST(req) {
@@ -12,7 +11,8 @@ export async function POST(req) {
     });
 
     if (!account) {
-      return new Response("Account not found", { status: 404 }), redirect("/account")
+    //   return new Response("Account not found", { status: 404 }), redirect("/account")
+      return new Response("Account not found", { status: 404 })
     }
 
     const product = await prisma.product.findFirst({
