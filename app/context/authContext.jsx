@@ -31,33 +31,36 @@ export const AuthProvider = ({ children }) => {
     Cookies.set("token", authData.token, { expires: 7 });
   }, [authData]);
 
+
   useEffect(() => {
-    const Submitted = async () => {
+    const submitCart = async () => {
       try {
         const response = await fetch("/api/cart-many", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ authData, cart }),
         });
-
+  
         if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Failed to submit cart:", errorText);
           return;
         }
+  
+        console.log("Cart submitted successfully!");
+  
       } catch (error) {
-        console.error("Error in Submitted():", error.message);
+        console.error("Error in submitCart():", error.message);
       } finally {
         setCart([]);
       }
     };
-
+  
     if (authData?.loggedIn && cart?.length > 0) {
-      Submitted();
-    } else {
-      // console.log("🚫 User not logged in");
+      submitCart();
     }
   }, [authData, cart]);
+  
 
   return (
     <AuthContext.Provider value={{ authData, setAuthData }}>

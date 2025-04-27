@@ -107,11 +107,14 @@ const ProductChangeableInfo = ({
   };
 
   const handleSubmit = async () => {
-    setModal(true);
     try {
+      setModal(true);
+  
       const response = await fetch("/api/cart", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           color: displayedColor,
           size,
@@ -121,19 +124,22 @@ const ProductChangeableInfo = ({
           authData,
         }),
       });
-
+  
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Error during fetch:", errorText);
-        throw new Error(errorText);
+        const errorData = await response.json().catch(() => ({})); // safely parse json or empty
+        const errorMessage = errorData.message || "Unknown error occurred.";
+        console.error("Error during fetch:", errorMessage);
+        throw new Error(errorMessage);
       }
-
-      const data = await response.json();
-      console.log("Item added to cart:", data);
+  
+      const successData = await response.json();
+      console.log("Item added to cart:", successData);
+  
     } catch (error) {
-      console.error("Submission error:", error.message);
+      console.error("Submission error:", error.message || error);
     }
   };
+  
   
   const handleGuestSubmit = () => {
     setModal(true);
