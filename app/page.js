@@ -1,101 +1,154 @@
+"use client";
+import Products from "./components/product";
 import Image from "next/image";
+import Loading from "./components/loading";
+import SecondaryButton from "./foundation/secondary-button";
+import Carousel from "./components/carousel";
+import useFetchProducts from "./apiFetches/products";
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { products, loading } = useFetchProducts();
+  const bestSeller = products?.filter(
+    (product) => product.status === "Best Seller"
+  );
+  const limitedAvailability = products?.filter(
+    (product) => product.status === "Limited Availability"
+  );
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const COLLECTIONS = [
+    {
+      image:
+        "https://us.sunspel.com/cdn/shop/articles/Merino-Wool-Journal-Template.jpg?v=1730128873&width=1296",
+      h1: "Hot Picks for the Season",
+      miniTitle: "Curated Styles Just for You.",
+      copy:
+        "Upgrade your wardrobe without breaking the bank. Discover premium styles now on sale—limited time, limited stock.",
+      cta: "Explore Collection",
+      link: "/collections/on sale",
+    },
+    {
+      image:
+        "https://us.sunspel.com/cdn/shop/files/About-Icons-T.jpg?v=1717413195&width=900",
+      h1: "Fresh Looks, Timeless Appeal",
+      miniTitle: "Discover Your Next Favorite.",
+      copy:
+        "Be the first to wear what’s new. Our latest arrivals combine classic craftsmanship with modern fits, made to stand out.",
+      cta: "Explore Collection",
+      link: "/collections/new arrival",
+    },
+  ];
+  
+
+  const INTRO = [
+    {
+      id: 1,
+      image1:
+        "https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/9fc7e144_edff/womens-rib-knit-organic-cotton-cardigan-bone",
+      image2:
+        "https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/a28e2ab4_5b86/womens-rib-knit-organic-cotton-cardigan-bone",
+      text: "Discover Your Perfect Comfort",
+      cta: "Shop the Exclusive Collection",
+      alt1:
+        "Stylish woman in casual blue jeans and a white shirt, leaning on one leg with a leather bag over her shoulder.",
+      alt2:
+        "Stylish woman seen from behind, wearing blue jeans and a white shirt.",
+      href: "collections/Exclusive"
+    },
+    {
+      id: 2,
+      image1:
+        "https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/036f2e98_9b7f/mens-heavyweight-pocket-tee-black",
+      image2:
+        "https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/ad485633_983f/mens-heavyweight-pocket-tee-black",
+      text: "Elevate Your Everyday Look",
+      cta: "Shop the New Arrivals",
+      alt1:
+        "Stylish man in white pants and a dark gray shirt, seated with relaxed posture.",
+      alt2:
+        "Stylish man seen from behind, wearing white pants and a dark gray shirt.",
+      href: "collections/new arrival"
+    }
+  ];
+  
+  
+
+  return (
+    <main className="w-full flex flex-col gap-9">
+      <div className="w-full overflow-hidden flex flex-col dynamic-x-padding">
+        {INTRO.map((item) => {
+          return (
+            <div className="w-full flex md:flex-row flex-col" key={item.id}>
+              <div className="w-full h-fit relative md:w-[624px]">
+                <Image
+                  src={item.image1}
+                  width={624}
+                  height={770}
+                  alt={item.alt1}
+                  className="md:w-[624px]  md:min-w-[624px] w-full"
+                />
+                <div className="absolute top-3 left-3 w-[249px] h-fit flex flex-col gap-3">
+                  <h1>{item.text}</h1>
+                  <SecondaryButton
+                    text={item.cta}
+                    href={item.href}
+                  />
+                </div>
+              </div>
+              <Image
+                src={item.image2}
+                width={624}
+                height={770}
+                alt={item.alt2}
+                className="md:w-[624px] md:min-w-[624px] sm:w-full w-0"
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex flex-col gap-3 dynamic-padding ">
+        <h2>Everlanes Best Sellers.</h2>
+        <div className="flex gap-9">
+          {loading ? (
+            <Loading number={4} />
+          ) : (
+            <Products items={bestSeller} showHearted={true} />
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="w-full dynamic-padding pr-0 h-fit flex md:flex-row flex-col gap-9 items-center justify-center">
+        <div className="w-full md:max-w-[606px] md:min-w-[606px] h-[770px] bg-[url('https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/4d5ab00b_8430/womens-cheeky-relaxed-straight-jean-vintage-mid')] bg-cover bg-center p-3">
+          <div className="w-[250px] h-fit flex flex-col gap-3 text-black">
+            <h1>Fashion That Cares</h1>
+            <p>Look good, feel good, do good.</p>
+          </div>
+        </div>
+        <div className="max-w-full overflow-hidden">
+          <Carousel newArrivals={limitedAvailability} isLoading={loading} />
+        </div>
+      </div>
+      <div className="w-full h-fit flex gap-9 dynamic-padding">
+        {COLLECTIONS.map((item, index) => {
+          return (
+            <div
+              key={index}
+              className="w-[606px] h-fit flex flex-col gap-6 items-center justify-center text-center"
+            >
+              <Image
+                src={item.image}
+                width={606}
+                height={770}
+                alt="Fashionable woman in blue jeans, a crisp white dress shirt, and a scarf, leaning casually on her right leg."
+              />
+              <div className="w-full h-fit flex flex-col gap-3">
+                <p>{item.miniTitle}</p>
+                <h2>{item.h1}</h2>
+              </div>
+              <SecondaryButton text={item.cta} href={item.link} />
+            </div>
+          );
+        })}
+      </div>
+    </main>
   );
 }
