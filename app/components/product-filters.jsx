@@ -8,7 +8,6 @@ const ProductFilters = ({
   status,
 }) => {
   let filtered = [...finalProducts];
-  console.log(filtered)
 
   const selectedCategory = (categoryName) =>
     ALL_CATEGORIES_AND_FILTERS.find((prev) => prev.category === categoryName)

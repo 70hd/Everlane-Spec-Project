@@ -28,13 +28,10 @@ const SearchInfo = ({
   displayProducts,
   setFinalFinalProducts,
 }) => {
-  // const [testFilters, setTestFilters] = useState([]);
-  // const [testProducts, setTestProducts] = useState([]);
   const [searchedProducts, setSearchedProducts] = useState([]);
 
   useEffect(() => {
     let products = displayProducts ? displayProducts : searchedProducts;
-    //  console.log(products)
     finalFilters.forEach((filter) => {
       const finalFilter =
         typeof filter === "object" && filter !== null
@@ -48,31 +45,11 @@ const SearchInfo = ({
         colors,
       });
     });
-    console.log("products", products);
+
     setFinalFinalProducts
       ? setFinalFinalProducts(products)
       : setFinalProducts(products);
   }, [finalFilters]);
-  // const updateSearchedProducts = (includes) => {
-  //   const searched = products?.filter((product) => {
-  //     if (!product.title && !product.description) return false;
-  //     const searchableFields = [
-  //       "title",
-  //       "description",
-  //       "status",
-  //       "productCare",
-  //       "productDetails",
-  //     ];
-  //     return searchableFields.some(
-  //       (field) =>
-  //         product[field] &&
-  //         product[field].toString().toLowerCase().includes(includes)
-  //     );
-  //   });
-
-  //   setSearchedProducts(searched || []);
-  // };
-  // const searchedColors = colors.filter((color) => searchedProducts.some((product) => product.id === color.id))
 
   useEffect(() => {
     if (!collections) {

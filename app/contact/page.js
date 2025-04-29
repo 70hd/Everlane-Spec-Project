@@ -31,7 +31,6 @@ const Page = () => {
   }, []);
 
   const handleSuccess = async (data) => {
-    console.log("user data: ", data);
     
     // After handling success, trigger the form submission again
     handleSubmit(); // No data is passed here
@@ -66,9 +65,7 @@ const Page = () => {
           ...prev,
           final: data.error || "Something went wrong.",
         }));
-      } else {
-        console.log("Message submitted successfully");
-      }
+      } 
     } catch (error) {
       setError((prev) => ({
         ...prev,

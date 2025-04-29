@@ -5,6 +5,7 @@ import Cart from "./cart";
 import { SHOP_OPTIONS } from "../../data/shop-options";
 import Link from "next/link";
 import AnimatedArrow from "./animated-arrow";
+import useDomainPrefix from "./domain";
 
 const ShopUi = ({ modal, canScroll,setModal }) => {
   const [clicked, setClicked] = useState(0);
@@ -19,7 +20,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [modal]);
-  const domain = window.location.origin + "/";
+    const domain = useDomainPrefix();
   
 
   return (
@@ -41,7 +42,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
           </p>
         ))}
       </div>
-      <div className="w-full flex h-fit justify-between">
+      <div className="w-full flex h-fit gap-2">
      
         {SHOP_OPTIONS[clicked].links.map((item, index) => (
           <Link onClick={(() => setModal((false)))} href={`${domain}${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
@@ -50,7 +51,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
               width={222}
               height={285}
               alt={item.text || "Image"}
-              className="min-h-[300px] max-h-[300px] w-full max-w-[222px]"
+              className="min-h-[300px] max-h-[300px] w-full "
             />
             {item.link ? (
               <div className="flex items-center gap-1 hover:underline">

@@ -21,16 +21,6 @@ const Form = ({
   setError,
   subTitle,
 }) => {
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   console.log("Updating formData:", e,name, value); // Log input name and value
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  //   console.log("FormData after update:", formData); // Log the state after update
-  // };
-
   const handleChange = useCallback(e => {
     const {name, value } = e.target; 
     setFormData(prev => ({ ...prev, [name]: value}))

@@ -84,7 +84,7 @@ export const SHOP_OPTIONS = [
     links: [
       {
         image:
-          "https://media.everlane.com/images/c_fill,w_750,ar_250:312,q_auto:best:sensitive,dpr_2.0,f_auto/i/26801a01_434b/mens-slim-oxford-light-blue",
+          "https://media.everlane.com/image/upload/c_fill,w_750,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/f491e4d3_12aa",
         alt: "New Arrival",
         text: "New Arrival",
         link: "/collections/new arrival",
@@ -93,7 +93,7 @@ export const SHOP_OPTIONS = [
       },
       {
         image:
-          "https://media.everlane.com/images/c_fill,w_750,ar_250:312,q_auto:best:sensitive,dpr_2.0,f_auto/i/26801a01_434b/mens-slim-oxford-light-blue",
+          "https://cdn.builder.io/api/v1/image/assets%2F444142b2cae54a19aeb8b5ba245feffe%2F2266fb8fd21f44d39599c7b376c5e49c?format=webp&width=2000",
         alt: "Limited Availability Collection",
         text: "Limited Availability",
         link: "/collections/limited availability",
@@ -102,7 +102,7 @@ export const SHOP_OPTIONS = [
       },
       {
         image:
-          "https://media.everlane.com/images/c_fill,w_750,ar_250:312,q_auto:best:sensitive,dpr_2.0,f_auto/i/26801a01_434b/mens-slim-oxford-light-blue",
+          "https://cdn.builder.io/api/v1/image/assets%2F444142b2cae54a19aeb8b5ba245feffe%2F341e64a2588848beafbd0d910835dd84?format=webp&width=2000",
         alt: "Best Seller Collection",
         text: "Best Seller",
         link: "/collections/best seller",
@@ -111,7 +111,7 @@ export const SHOP_OPTIONS = [
       },
       {
         image:
-          "https://media.everlane.com/images/c_fill,w_750,ar_250:312,q_auto:best:sensitive,dpr_2.0,f_auto/i/26801a01_434b/mens-slim-oxford-light-blue",
+          "https://media.everlane.com/image/upload/c_fill,w_750,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/7d50dbed_0574",
         alt: "On Sale Collection",
         text: "On Sale",
         link: "/collections/on sale",
@@ -120,7 +120,7 @@ export const SHOP_OPTIONS = [
       },
       {
         image:
-          "https://media.everlane.com/images/c_fill,w_750,ar_250:312,q_auto:best:sensitive,dpr_2.0,f_auto/i/26801a01_434b/mens-slim-oxford-light-blue",
+          "https://cdn.builder.io/api/v1/image/assets%2F444142b2cae54a19aeb8b5ba245feffe%2Fb29603aacb1443bd83900caa7776a9e3?format=webp&width=2000",
         alt: "Exclusive Collection",
         text: "Exclusive",
         link: "/collections/exclusive",

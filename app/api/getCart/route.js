@@ -20,7 +20,7 @@ export async function GET(req) {
       return new Response("Account not found", { status: 404 }),  redirect("/account");
     }
 
-    console.log("Account found:", account); // Log account data for debugging
+
 
     // Fetch the cart items with product info
     const cart = await prisma.productCartDetailes.findMany({

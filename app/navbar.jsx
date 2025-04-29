@@ -127,7 +127,7 @@ const Navbar = () => {
     },
     {
       category: "About Us",
-      link: "/about",
+      link: "/impact",
     },
     {
       category: "Shop",

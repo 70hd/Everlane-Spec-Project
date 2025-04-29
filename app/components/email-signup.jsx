@@ -47,7 +47,6 @@ const EmailSignup = ({ col, cta, red, route,label }) => {
     ];
     const PostEmail = async () => {
       try {
-        // console.log(emailSignup)
         const fetchItems = await fetch(route, {
           method: "POST",
           headers: {
@@ -112,7 +111,7 @@ const EmailSignup = ({ col, cta, red, route,label }) => {
               ? "border-red-500"
               : "border-red-500/50"
             : "border-black/50"
-        } w-full h-fit p-3 min-w-[285px] `}
+        } w-full h-fit p-3 md:min-w-[285px] `}
         onChange={handleChange}
         value={emailSignup.email}
         aria-invalid={error || !!serverError}

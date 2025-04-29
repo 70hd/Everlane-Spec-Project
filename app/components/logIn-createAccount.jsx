@@ -26,9 +26,7 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (formData) => {
-    console.log("Form submitted!", formData);
     setLoading(true);
-    console.log({...formData, cart})
   
     try {
       const payload = isLogIn
@@ -89,7 +87,6 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
     "https://media.everlane.com/images/c_fill,w_1080,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/f45df1e4_95f9/womens-rewool-cocoon-coat-heather-taupe";
   const title = isLogIn ? "Log In" : "Create Account";
   const handleSuccess = async (formData) => {
-    console.log("Form data validated, now submitting!", formData);
     await handleSubmit(formData); // <-- submit it after success
   };
 

@@ -183,7 +183,7 @@ const ModalUi = ({
             <h2>{section.type}</h2>
             <div className="grid grid-cols-2 gap-4">
               {section.links.map((item, index) => (
-                <Link key={index} href={item.link} className="flex flex-col gap-2">
+                <a key={index} href={item.link} className="flex flex-col gap-2">
                   <Image
                     src={item.image}
                     alt={item.alt || item.text}
@@ -192,7 +192,7 @@ const ModalUi = ({
                     className="w-auto min-h-[185px] max-h-[185px] object-cover"
                   />
                   <p className="p2 p-2">{item.text}</p>
-                </Link>
+                </a>
               ))}
             </div>
           </div>

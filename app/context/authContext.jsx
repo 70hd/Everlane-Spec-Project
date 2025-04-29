@@ -46,8 +46,7 @@ export const AuthProvider = ({ children }) => {
           console.error("Failed to submit cart:", errorText);
           return;
         }
-  
-        console.log("Cart submitted successfully!");
+
   
       } catch (error) {
         console.error("Error in submitCart():", error.message);

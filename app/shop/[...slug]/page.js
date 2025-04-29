@@ -8,6 +8,7 @@ import CollectionsImage from "../../components/collections-image";
 import Custom404 from "../../not-found";
 import Fuse from "fuse.js";
 import NoProductResults from "../../components/no-product-results"
+import useDomainPrefix from "../../components/domain";
 
 const Page = () => {
   const [currentUrl, setCurrentUrl] = useState("");
@@ -21,7 +22,7 @@ const Page = () => {
   const [finalFinalProducts, setFinalFinalProducts] = useState([])
 
   const { products, colors, loading } = useFetchProducts();
-  const domain = window.location.origin + "/";
+  const domain = useDomainPrefix();
   const LOCALHOST_PREFIX = `${domain}shop/`;
 
 

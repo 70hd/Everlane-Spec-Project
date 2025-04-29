@@ -132,8 +132,6 @@ const ProductChangeableInfo = ({
         throw new Error(errorMessage);
       }
   
-      const successData = await response.json();
-      console.log("Item added to cart:", successData);
   
     } catch (error) {
       console.error("Submission error:", error.message || error);

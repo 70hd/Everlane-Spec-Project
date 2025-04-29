@@ -7,6 +7,10 @@ import Loading from "../../components/loading";
 import CollectionsImage from "../../components/collections-image";
 import Custom404 from "../../not-found";
 import NoProductResults from "../../components/no-product-results";
+import useDomainPrefix from "../../components/domain"; // adjust path
+
+
+
 
 const Page = () => {
   const [currentUrl, setCurrentUrl] = useState("");
@@ -26,7 +30,10 @@ const Page = () => {
       };
     }, {});
   }, [products]);  
-  const domain = window.location.origin + "/";
+
+
+
+  const domain = useDomainPrefix();
   const LOCALHOST_PREFIX = `${domain}collections/`;
 
   useEffect(() => {

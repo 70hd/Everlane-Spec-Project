@@ -5,6 +5,7 @@ import ModalPortal from "./shop-modal-portal";
 
 const ShopModal = () => {
   const [modal, setModal] = useState(false);
+
   return (
     <section className="w-fit h-fit flex justify-between">
             

@@ -217,14 +217,14 @@ const Cart = ({ modal }) => {
   return (
     <section
       className={`sticky ${
-        modal ? "w-fit" : "w-[606px]"
+        modal ? "w-fit" : "md:w-[606px] w-full"
       } h-fit flex flex-col gap-9 dynamic-y-padding`}
     >
       <div className="w-full flex justify-between">
         <h2>Cart({Carted?.length})</h2>
-        {!modal && (
+        {/* {!modal && (
           <Image src="/shopping-cart.svg" width={20} height={20} alt="shopping cart icon" />
-        )}
+        )} */}
       </div>
 
       {Carted?.map((cart, index) => {
@@ -233,20 +233,21 @@ const Cart = ({ modal }) => {
         const image = authData.loggedIn ? cart.product.images[0] : cart.image;
         const price = authData.loggedIn ? cart.product.price : cart.price;
         return (
-          <div className="w-full h-[392px] flex" key={index}>
+          <div className="w-full md:h-[392px] h-fit flex md:flex-row flex-col" key={index}>
             <a href={`/product/${title}`}>
               <Image
                 src={image}
                 width={285}
                 height={392}
                 alt="product"
-                className="min-w-[285px] min-h-[392px]"
+                className="w-full md:min-w-[285px] min-h-[392px]"
               />
             </a>
 
-            <div className="flex flex-col justify-between p-3 w-full">
-              <div className="flex gap-3 items-start">
-                <a href={`/product/${title}`}>
+            <div className="flex flex-col gap-3 justify-between p-3 w-full">
+              <div className="flex gap-3 items-start w-full ">
+                <a href={`/product/${title}`} className="w-full flex flex-col gap-3">
+                <p className="md:hidden block text-red-600">(20% Off)</p>
                     <h2>{title}</h2>
                     <p className="text-gray-800">
                       {cart.size} | {cart.selectedColor}
@@ -272,8 +273,8 @@ const Cart = ({ modal }) => {
                 )}
               </div>
 
-              <div className="flex flex-col gap-3">
-                <p className=" text-red-600">(20% Off)</p>
+              <div className="flex  flex-col gap-3">
+              <p className="hidden md:block text-red-600">(20% Off)</p>
                 <div className="flex justify-between w-[134px]">
                   <p>${price}</p>
                   <p className=" text-gray-800">${(price * 0.8).toFixed(2)}</p>
@@ -301,14 +302,14 @@ const Cart = ({ modal }) => {
       })}
 
       {!modal && (
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-3">
+        <div className="flex flex-col gap-3 w-full">
+          <div className="flex md:flex-row flex-col gap-3 w-full">
             <input
               type="text"
               placeholder="Enter Coupon"
               onChange={onChangeCoupon}
               value={couponValue}
-              className="w-full h-[48px] p-3 border focus:outline-none"
+              className="w-full  h-[48px] p-3 border focus:outline-none"
             />
             <button
               onClick={applyCoupon}
@@ -334,7 +335,7 @@ const Cart = ({ modal }) => {
               )
             ))}
 
-          <div className="border-t text-gray-800 flex flex-col gap-3 py-4">
+          <div className="border-t text-gray-800 flex w-full flex-col gap-3 py-4">
             {[
               { title: "Subtotal", equation: subTotal.toFixed(2) },
               { title: "Sale", equation: (sale - subTotal).toFixed(2) },

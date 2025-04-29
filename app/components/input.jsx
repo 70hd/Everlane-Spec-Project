@@ -11,7 +11,6 @@ const Input = ({
   label
 }) => {
   const errorId = `${name}-error`;
-  console.log(version)
   const commonProps = {
     id,
     name,

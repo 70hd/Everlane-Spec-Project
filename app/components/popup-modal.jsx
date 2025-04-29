@@ -180,7 +180,7 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
 
           <div className="flex gap-6 items-center">
             <div className="max-w-[315px] flex flex-col gap-6">
-              <h2 className="text-center">
+              <h2 className="sm:text-center ">
                 Earn 10% <span className="text-[#FFC68A]">OFF</span> Your Next
                 Purchase
               </h2>
