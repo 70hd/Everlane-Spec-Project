@@ -51,12 +51,12 @@ const Page = () => {
 
   return (
     <main className="flex flex-col dynamic-padding">
-      {products.length > 1 &&
-      !finalRender &&
+      {/* {products.length > 1 &&
+      finalRender &&
       finalProducts.length === 0 &&
       finalFilters.length === 0 ? (
         <Custom404 />
-      ) : (
+      ) : ( */}
         <section>
           <CollectionsImage
             LOCALHOST_PREFIX={LOCALHOST_PREFIX}
@@ -85,7 +85,7 @@ const Page = () => {
             <Products items={finalProducts} />
           )}
         </section>
-      )}
+      {/* )} */}
       <NoProductResults
         setFinalFilters={setFinalFilters}
         finalFilters={finalFilters}
