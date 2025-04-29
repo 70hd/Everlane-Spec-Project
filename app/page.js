@@ -132,13 +132,14 @@ export default function Home() {
           return (
             <div
               key={index}
-              className="w-[606px] h-fit flex flex-col gap-6 items-center justify-center text-center"
+              className="md:w-[606px] w-full h-fit flex flex-col gap-6 items-center justify-center text-center"
             >
               <Image
                 src={item.image}
                 width={606}
                 height={770}
                 alt="Fashionable woman in blue jeans, a crisp white dress shirt, and a scarf, leaning casually on her right leg."
+                className="w-full"
               />
               <div className="w-full h-fit flex flex-col gap-3">
                 <p>{item.miniTitle}</p>
