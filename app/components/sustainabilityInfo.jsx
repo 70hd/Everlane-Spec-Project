@@ -20,7 +20,7 @@ const SustainabilityInfo = () => {
 
   return (
     <section className="w-full dynamic-padding flex flex-col gap-6 text-center items-center justify-center">
-      <div className="w-full border-b border-black p-3 flex gap-3  justify-center">
+      <div className="w-full border-b border-black md:p-3 p-1 flex gap-3  justify-center">
         {DATA.map((item, id) => (
           <button
             key={id}

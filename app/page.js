@@ -127,7 +127,7 @@ export default function Home() {
           <Carousel newArrivals={limitedAvailability} isLoading={loading} />
         </div>
       </div>
-      <div className="w-full h-fit flex gap-9 dynamic-padding">
+      <div className="w-full h-fit flex md:flex-row flex-col gap-9 dynamic-padding">
         {COLLECTIONS.map((item, index) => {
           return (
             <div

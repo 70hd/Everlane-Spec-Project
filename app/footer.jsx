@@ -4,7 +4,7 @@ import EmailSignup from "./components/email-signup";
 
 const Footer = () => {
   const LINKS = [
-    { text: "Home", link: "/Home" },
+    { text: "Home", link: "/" },
     { text: "Limited Availability Collection", link: "collections/Limited Availability" },
     { text: "Exclusive Collection", link: "collections/exclusive" },
     { text: "Best Seller Collection", link: "collections/best seller" },
@@ -15,7 +15,7 @@ const Footer = () => {
     { text: "Returns & Exchanges", link: "/faq?query=return and exchanges" },
     { text: "Shipping & Delivery", link: "/faq?query=shipping and delivery" },
     { text: "Account", link: "/account" },
-    { text: "Cart", link: "/cart" },
+    { text: "Cart", link: "/checkout" },
     { text: "Favorites", link: "/favorites" },
     { text: "Search", link: "/search?query=" },
   ];

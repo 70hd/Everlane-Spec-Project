@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import Image from "next/image";
 import { useCart } from "../context/cartContext";
 import Form from "../components/form";
-import {FORMS} from "../../data/forms"
+import { FORMS } from "../../data/forms";
 import SignUpForm from "./signupForm";
 
 const Accounts = ({ isLogIn, setIsLogIn }) => {
@@ -27,7 +27,7 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
 
   const handleSubmit = async (formData) => {
     setLoading(true);
-  
+
     try {
       const payload = isLogIn
         ? JSON.stringify({ ...formData, cart })
@@ -40,16 +40,16 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
           body: payload,
         }
       );
-  
+
       const text = await response.text();
       let data;
-  
+
       try {
         data = JSON.parse(text);
       } catch {
         data = {};
       }
-  
+
       if (!response.ok) {
         setError((prev) => ({
           ...prev,
@@ -57,7 +57,7 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
         }));
         return;
       }
-  
+
       if (isLogIn) {
         const HASHEDPASSWORD = await bcrypt.hash(data.user.password, 10);
         setAuthData({
@@ -92,41 +92,25 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
 
   return (
     <div className="dynamic-padding">
-              <SignUpForm
-              onSuccess={handleSuccess}
-           FORMS={FORMS}
-           setLoading={setLoading}
-           title={title}
-           loading={loading}
-           setFormData={setFormData}
-           imageSrc={IMAGE}
-           formData={formData}
-          //  handleSubmit={handleSubmit}
-           isLogIn={isLogIn}
-           showLogInInfo={true}
-           error={error}
-           setError={setError}
-           setIsLogIn={setIsLogIn}
-           imageAlt={"Woman wearing a heather taupe cocoon coat, standing with hands in pockets."}
-         />
-    {/* <Form
-      FORMS={FORMS}
-      setLoading={setLoading}
-      title={title}
-      loading={loading}
-      setFormData={setFormData}
-      imageSrc={IMAGE}
-      formData={formData}
-      handleSubmit={handleSubmit}
-      isLogIn={isLogIn}
-      showLogInInfo={true}
-      error={error}
-      setError={setError}
-      setIsLogIn={setIsLogIn}
-      imageAlt={"Woman wearing a heather taupe cocoon coat, standing with hands in pockets."}
-    /> */}
+      <SignUpForm
+        onSuccess={handleSuccess}
+        FORMS={FORMS}
+        setLoading={setLoading}
+        title={title}
+        loading={loading}
+        setFormData={setFormData}
+        imageSrc={IMAGE}
+        formData={formData}
+        isLogIn={isLogIn}
+        showLogInInfo={true}
+        error={error}
+        setError={setError}
+        setIsLogIn={setIsLogIn}
+        imageAlt={
+          "Woman wearing a heather taupe cocoon coat, standing with hands in pockets."
+        }
+      />
     </div>
-
   );
 };
 

@@ -24,11 +24,11 @@ const CollectionsImage = ({ LOCALHOST_PREFIX, finalUrl }) => {
       className="w-full h-[285px] p-3 items-start justify-start bg-cover bg-center"
       style={{ backgroundImage: `url('${BACKGROUND_IMAGE_URL}')` }}
     >
-      <div className="w-[392px] flex flex-col gap-6">
+      <div className="md:w-[392px] w-full flex flex-col gap-6">
         <h1 className="text-transform: capitalize">
           {url}
         </h1>
-        {finalUrl.includes("collections") && <p>
+        {finalUrl.includes("collections") && <p className="hidden md:block">
           {descriptionItem?.description}
         </p>}
       </div>

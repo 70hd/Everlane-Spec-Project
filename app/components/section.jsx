@@ -12,7 +12,7 @@ const Section = ({ image, alt, title, description, value }) => {
         width={606}
         height={392}
         alt={alt}
-        className="w-full max-w-[606px] md:min-h-[392px]"
+        className="w-full max-w-[606px] md:min-h-[192px] "
       />
       <div className="w-full max-w-[606px] flex flex-col gap-6">
         <h1>{title}</h1>

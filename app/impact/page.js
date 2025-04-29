@@ -1,9 +1,12 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import Section from "../components/section";
 import DisplaySection from "../components/displaySections";
+import useScreenWidth from "../components/screen-width";
 
 const Impact = () => {
+  const screenWidth = useScreenWidth();
 
   const SECTIONS = [
     {
@@ -38,18 +41,23 @@ const Impact = () => {
       description:
         "We believe fashion has the power to not only make you look great but also to inspire meaningful change. Our journey began with a simple yet ambitious idea: to redefine the way we think about clothing. In a world where fast fashion dominates, we wanted to create something different—a brand that prioritizes both style and sustainability.",
     },
-  ];  
+  ];
+  const text =
+    "At Everlane, we want the right choice to be as easy as putting on a great T-shirt. That’s why we partner with the best, ethical factories around the world. Source only the finest materials. And share those stories with you—down to the true cost of every product we make. It’s a new way of doing things. We call it Radical Transparency. ";
   return (
     <main className="w-full h-fit flex flex-col gap-9">
-      <Image src={"/impact.png"} width={1440} height={392} alt="Multiple people working together to sew clothing." />
-      <div className="w-full px-24 dynamic-padding justify-center items-center">
-        <h1 className="w-full text-center">
-          At Everlane, we want the right choice to be as easy as putting on a
-          great T-shirt. That’s why we partner with the best, ethical factories
-          around the world. Source only the finest materials. And share those
-          stories with you—down to the true cost of every product we make. It’s
-          a new way of doing things. We call it Radical Transparency.
-        </h1>
+      <Image
+        src={"/impact.png"}
+        width={1440}
+        height={392}
+        alt="Multiple people working together to sew clothing."
+      />
+      <div className="w-full px-24  dynamic-padding justify-center items-center">
+        {screenWidth > 768 ? (
+          <h1 className="w-full text-center ">{text}</h1>
+        ) : (
+          <p className="w-full text-center "> {text}</p>
+        )}
       </div>
       <DisplaySection SECTIONS={SECTIONS} />
     </main>
