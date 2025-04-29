@@ -197,7 +197,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/kanefernandez/everlane/prisma/node_modules/@prisma/client",
+      "value": "/Users/kanefernandez/everlane/prisma/app/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -215,17 +215,17 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../../.env"
+    "rootEnvPath": "../../../.env",
+    "schemaEnvPath": "../../../.env"
   },
-  "relativePath": "../../..",
+  "relativePath": "../..",
   "clientVersion": "6.6.0",
   "engineVersion": "f676762280b54cd07c770017ed3711ddde35f37a",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": true,
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -234,8 +234,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./node_modules/@prisma/client\" // Specify the path here\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Color {\n  id        Int     @id @default(autoincrement())\n  colorHex  String\n  colorName String\n  productId Int\n  product   Product @relation(fields: [productId], references: [id])\n}\n\nmodel Product {\n  id             Int                   @id @default(autoincrement())\n  status         String\n  size           String[]              @default([\"XXS\", \"XS\", \"S\", \"M\", \"L\", \"XL\", \"XXL\"])\n  title          String\n  price          Int\n  description    String\n  productDetails String\n  productCare    String\n  images         String[]\n  colors         Color[]\n  cartDetails    ProductCartDetailes[]\n  hearts         Heart[]               @relation(\"HeartProducts\")\n  inventory      Int                   @default(1000)\n  gender         Gender?               @default(MEN)\n}\n\nenum Gender {\n  WOMEN\n  MEN\n}\n\nmodel ProductCartDetailes {\n  id                Int      @id @default(autoincrement())\n  selectedColorName String?\n  selectedColor     String?\n  size              String?\n  quantity          Int?\n  accountId         Int\n  productId         Int?\n  account           Account  @relation(fields: [accountId], references: [id])\n  product           Product? @relation(fields: [productId], references: [id])\n}\n\nmodel Account {\n  id         Int                   @id @default(autoincrement())\n  username   String                @unique\n  email      String                @unique\n  password   String\n  permission Role?                 @default(USER)\n  hearts     Heart[]\n  cart       ProductCartDetailes[]\n}\n\nmodel Heart {\n  id        Int       @id @default(autoincrement())\n  accountId Int?\n  account   Account?  @relation(fields: [accountId], references: [id])\n  products  Product[] @relation(\"HeartProducts\")\n\n  @@index([accountId])\n}\n\nmodel ContactSignup {\n  id        Int    @id @default(autoincrement())\n  firstName String\n  lastName  String\n  email     String\n  message   String\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n\nmodel NewsLetter {\n  id    Int    @id @default(autoincrement())\n  email String @unique\n}\n\nmodel Faq {\n  Id       Int    @id @default(autoincrement())\n  question String\n  answer   String\n}\n",
-  "inlineSchemaHash": "8b818bb8bb633bc5c4b59ce0d3746024ae57a76b73e6200612a55fd9ee801f10",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  // output   = \"../node_modules/@prisma/client\"  // Specify the path here\n  output   = \"./app/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Color {\n  id        Int     @id @default(autoincrement())\n  colorHex  String\n  colorName String\n  productId Int\n  product   Product @relation(fields: [productId], references: [id])\n}\n\nmodel Product {\n  id             Int                   @id @default(autoincrement())\n  status         String\n  size           String[]              @default([\"XXS\", \"XS\", \"S\", \"M\", \"L\", \"XL\", \"XXL\"])\n  title          String\n  price          Int\n  description    String\n  productDetails String\n  productCare    String\n  images         String[]\n  colors         Color[]\n  cartDetails    ProductCartDetailes[]\n  hearts         Heart[]               @relation(\"HeartProducts\")\n  inventory      Int                   @default(1000)\n  gender         Gender?               @default(MEN)\n}\n\nenum Gender {\n  WOMEN\n  MEN\n}\n\nmodel ProductCartDetailes {\n  id                Int      @id @default(autoincrement())\n  selectedColorName String?\n  selectedColor     String?\n  size              String?\n  quantity          Int?\n  accountId         Int\n  productId         Int?\n  account           Account  @relation(fields: [accountId], references: [id])\n  product           Product? @relation(fields: [productId], references: [id])\n}\n\nmodel Account {\n  id         Int                   @id @default(autoincrement())\n  username   String                @unique\n  email      String                @unique\n  password   String\n  permission Role?                 @default(USER)\n  hearts     Heart[]\n  cart       ProductCartDetailes[]\n}\n\nmodel Heart {\n  id        Int       @id @default(autoincrement())\n  accountId Int?\n  account   Account?  @relation(fields: [accountId], references: [id])\n  products  Product[] @relation(\"HeartProducts\")\n\n  @@index([accountId])\n}\n\nmodel ContactSignup {\n  id        Int    @id @default(autoincrement())\n  firstName String\n  lastName  String\n  email     String\n  message   String\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n\nmodel NewsLetter {\n  id    Int    @id @default(autoincrement())\n  email String @unique\n}\n\nmodel Faq {\n  Id       Int    @id @default(autoincrement())\n  question String\n  answer   String\n}\n",
+  "inlineSchemaHash": "369bc284a6eee83b54071dbd56ba243456c3ddf7a730d2a09b2c1b1833c624b9",
   "copyEngine": true
 }
 config.dirname = '/'
