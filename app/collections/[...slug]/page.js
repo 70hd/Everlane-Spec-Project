@@ -25,8 +25,9 @@ const Page = () => {
         [item.id]: { isHearted: false },
       };
     }, {});
-  }, [products]);
-  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app/collections/";
+  }, [products]);  
+  const domain = window.location.origin + "/";
+  const LOCALHOST_PREFIX = `${domain}collections/`;
 
   useEffect(() => {
     setHeart(createHeartState);

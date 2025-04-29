@@ -19,6 +19,8 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [modal]);
+  const domain = window.location.origin + "/";
+  
 
   return (
     <section
@@ -27,7 +29,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       }`}
     >
       
-      <div className="flex gap-6 mt-[126px] p-3 w-full max-w-[1248px] justify-center items-center border-b-[1px]">
+      <div className="flex gap-6 mt-[126px] p-3 w-full max-w-[1248px] justify-center items-center border-b-[1px] border-black/25">
         {SHOP_OPTIONS.map((item, index) => (
           <p
           onClick={() => setClicked(index)}
@@ -42,7 +44,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       <div className="w-full flex h-fit justify-between">
      
         {SHOP_OPTIONS[clicked].links.map((item, index) => (
-          <Link onClick={(() => setModal((false)))} href={`https://everlane-spec-project.vercel.app/${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
+          <Link onClick={(() => setModal((false)))} href={`${domain}${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
             <Image
               src={item.image}
               width={222}

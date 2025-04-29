@@ -47,7 +47,7 @@ const Search = ({link}) => {
   };
 
   return (
-    <section className="flex w-full justify-between min-w-[125px] border p1">
+    <section className="flex w-full justify-between min-w-[125px] border border-black/25 p1">
       <input
         type="text"
         value={search}

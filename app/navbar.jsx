@@ -174,7 +174,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="sticky top-0 z-40 w-full h-fit flex flex-col gap-0 bg-white text-black border-b">
+    <nav className="sticky top-0 z-40 w-full h-fit flex flex-col gap-0 bg-white text-black border-b border-black/25">
       <div className="w-full h-fit py-3 bg-black text-white text-sm font-normal items-center text-center">
         {hasMounted ? title : "Casual Cool – Everyday Looks You’ll Love"}
       </div>
@@ -202,7 +202,9 @@ const Navbar = () => {
                           : text === "About Us" ? "impact":text.toLowerCase().replace(/\s+/g, "")
                       }`}
                     >
+                      <p>
                       {text}
+                      </p>
                     </a>
                   ) : (
                     <ShopModal />

@@ -21,8 +21,9 @@ const Page = () => {
   const [finalFinalProducts, setFinalFinalProducts] = useState([])
 
   const { products, colors, loading } = useFetchProducts();
+  const domain = window.location.origin + "/";
+  const LOCALHOST_PREFIX = `${domain}shop/`;
 
-  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app/shop/";
 
   useEffect(() => {
     setCurrentUrl(window.location.href);

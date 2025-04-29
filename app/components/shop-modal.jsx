@@ -13,7 +13,7 @@ const ShopModal = () => {
         aria-label="Open filters modal"
         onMouseEnter={() => setModal((prev) => !prev)}
       >
-        <span>Shop</span>
+        <p>Shop</p>
       </button>
 
       <ModalPortal>
