@@ -167,7 +167,7 @@ const Navbar = () => {
         width={20}
         height={20}
         alt="shopping cart icon"
-        className="min-w-[20px]"
+        className="min-w-[20px] "
       />
     </a>
   );
@@ -224,16 +224,16 @@ const Navbar = () => {
             className="w-full"
           />
         </a>
-        <div className="min-w-[125px] w-fit h-fit flex gap-9 items-center">
+        <div className=" w-fit h-fit flex gap-9 items-center">
           {screenWidth > 1112 && (
             <div className="relative w-[285px]">
               <Search link={"search"} />
             </div>
           )}
-          <div className="relative flex gap-3 items-center">
-            {screenWidth < 1112 && (
+          <div className="relative flex w-fit gap-3 items-center">
+            {/* {screenWidth < 1112 && (
               <Images url={"/search.svg"} link={"/search"} />
-            )}
+            )} */}
             {hasMounted && authData.loggedIn ? (
               <div className="relative">
                 <Image
@@ -254,7 +254,7 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <Images url={"/user.svg"} link={"/account"} />
+              screenWidth > 1112 && <Images url={"/user.svg"} link={"/account"} />
             )}
 
             <Images url={"/heart.svg"} link={"/favorites"} />
