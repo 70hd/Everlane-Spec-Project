@@ -93,3 +93,12 @@ model Faq {
   question String
   answer   String
 }
+
+// TODO: 
+// reimplement prisma from scratch 
+// delete tailwind from package.json 
+// reinstall install it 
+// npm run build 
+// git add . 
+// git commit -m "message"
+// git push 
