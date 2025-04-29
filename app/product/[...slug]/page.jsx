@@ -162,16 +162,16 @@ const ProductsPage = ({ params }) => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-fit flex dynamic-x-padding gap-9 pt-20">
-          <div className="min-w-[606px] min-h-[800px] skeleton-text skeleton" />
-          <div className="min-w-[606px] flex flex-col gap-9">
+        <div className="w-full h-fit flex md:flex-row flex-col dynamic-x-padding gap-9 pt-20">
+          <div className="max-w-[606px] md:min-w-[606px] max-h-[800px] w-full h-full skeleton-text skeleton" />
+          <div className="max-w-[606px] md:min-w-[606px] flex flex-col gap-9 w-full h-full">
             <h1>
               {finalUrl
                 .replace("everlane-spec-project.vercel.app/", "")
                 .replace(/%20/g, " ")}
             </h1>
 
-            <div className="min-w-[606px] max-h-[48px] skeleton-text skeleton" />
+            <div className="max-w-[606px] md:min-w-[606px] max-h-[48px] w-full h-full skeleton-text skeleton" />
           </div>
         </div>
       )}

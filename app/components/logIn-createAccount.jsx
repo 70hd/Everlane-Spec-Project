@@ -91,7 +91,7 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
   };
 
   return (
-    <div className="dynamic-padding">
+    <div className="w-full">
       <SignUpForm
         onSuccess={handleSuccess}
         FORMS={FORMS}

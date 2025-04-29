@@ -5,6 +5,7 @@ import Loading from "./components/loading";
 import SecondaryButton from "./foundation/secondary-button";
 import Carousel from "./components/carousel";
 import useFetchProducts from "./apiFetches/products";
+import useScreenWidth from "./components/screen-width";
 
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   const limitedAvailability = products?.filter(
     (product) => product.status === "Limited Availability"
   );
-
+const screenWidth = useScreenWidth();
   const COLLECTIONS = [
     {
       image:

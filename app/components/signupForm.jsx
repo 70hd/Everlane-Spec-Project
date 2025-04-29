@@ -92,7 +92,7 @@ export default function SignUpForm({
 //   );
 const names = FORMS.map(f => f.name);
   return (
-    <section className="w-full flex flex-col md:flex-row items-center justify-between gap-10">
+    <section className="w-full flex dynamic-y-padding flex-col md:flex-row items-center justify-between gap-10">
       {/* ------------- form column ----------------------------------- */}
       <div className="w-full md:flex-1 flex flex-col gap-6">
         <form
