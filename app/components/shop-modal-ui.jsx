@@ -42,7 +42,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       <div className="w-full flex h-fit justify-between">
      
         {SHOP_OPTIONS[clicked].links.map((item, index) => (
-          <Link onClick={(() => setModal((false)))} href={`http://localhost:3000/${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
+          <Link onClick={(() => setModal((false)))} href={`https://everlane-spec-project.vercel.app/${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
             <Image
               src={item.image}
               width={222}

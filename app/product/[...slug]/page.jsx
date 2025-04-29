@@ -167,7 +167,7 @@ const ProductsPage = ({ params }) => {
           <div className="min-w-[606px] flex flex-col gap-9">
             <h1>
               {finalUrl
-                .replace("http://localhost:3000/product/", "")
+                .replace("everlane-spec-project.vercel.app/", "")
                 .replace(/%20/g, " ")}
             </h1>
 

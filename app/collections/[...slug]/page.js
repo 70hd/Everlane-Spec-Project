@@ -26,7 +26,7 @@ const Page = () => {
       };
     }, {});
   }, [products]);
-  const LOCALHOST_PREFIX = "http://localhost:3000/collections/";
+  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app//collections/";
 
   useEffect(() => {
     setHeart(createHeartState);

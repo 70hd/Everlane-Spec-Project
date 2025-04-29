@@ -22,7 +22,7 @@ const Page = () => {
 
   const { products, colors, loading } = useFetchProducts();
 
-  const LOCALHOST_PREFIX = "http://localhost:3000/shop/";
+  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app/shop/";
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
