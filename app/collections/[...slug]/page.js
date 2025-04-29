@@ -18,6 +18,17 @@ const Page = () => {
   const [status, setStatus] = useState("All Products");
   const [heart, setHeart] = useState();
   const [finalRender, setFinalRender] = useState(false);
+
+  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app/collections/";
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
+  const finalUrl = currentUrl.includes("query=")
+    ? decodeURIComponent(currentUrl.split("query=")[1].replace(/\+/g, " "))
+    : currentUrl.replace(LOCALHOST_PREFIX, "").replace(/%20/g, " ");
+
   const createHeartState = useMemo(() => {
     return products?.reduce((acc, item) => {
       return {
@@ -26,28 +37,26 @@ const Page = () => {
       };
     }, {});
   }, [products]);
-  const LOCALHOST_PREFIX = "https://everlane-spec-project.vercel.app/collections/";
 
   useEffect(() => {
     setHeart(createHeartState);
   }, [createHeartState]);
 
-  const finalUrl = currentUrl.includes("query=")
-    ? decodeURIComponent(currentUrl.split("query=")[1].replace(/\+/g, " "))
-    : currentUrl;
-
   useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []);
-  const finalStatus = finalUrl
-    .replace(LOCALHOST_PREFIX, "")
-    .replace("%20", " ");
+    if (products.length > 0 && finalUrl) {
+      const filteredProducts = products.filter(product =>
+        product.collectionName?.toLowerCase().replace(/\s+/g, "-") ===
+        finalUrl.toLowerCase().replace(/\s+/g, "-")
+      );
+      setFinalProducts(filteredProducts);
+    }
+  }, [products, finalUrl]);
 
   useEffect(() => {
     if (products.length > 1) {
       setFinalRender(true);
     }
-  }, [finalProducts]);
+  }, [products]);
 
   return (
     <main className="flex flex-col dynamic-padding">
@@ -67,7 +76,7 @@ const Page = () => {
             finalProducts={finalProducts}
             products={products}
             typeClicked={typeClicked}
-            status={finalStatus}
+            status={finalUrl}
             setTypeClicked={setTypeClicked}
             setStatus={setStatus}
             finalFilters={finalFilters}
