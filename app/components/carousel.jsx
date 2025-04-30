@@ -46,7 +46,7 @@ const Carousel = ({ newArrivals, isLoading }) => {
 
   return (
     <section
-      className="w-fit h-fit flex flex-col custom-gap-9"
+      className="w-fit h-fit flex flex-col md:custom-gap-9 custom-gap-3"
       role="region"
       aria-label="New arrivals carousel"
     >

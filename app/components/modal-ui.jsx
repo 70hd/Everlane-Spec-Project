@@ -149,7 +149,7 @@ const ModalUi = ({
                 type={item.type}
               />
             ) : item.button ? (
-              <div className="flex justify-start w-full">
+              <div className="flex justify-start w-full" onClick={(() => setModal(false))}>
                 <PrimaryButton href={item.link} text={item.button} />
               </div>
             ) : item.collections ? (

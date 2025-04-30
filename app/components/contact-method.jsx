@@ -3,7 +3,7 @@ import React from "react";
 
 const Info = ({data}) => {
   return (
-    <div className="max-w-[392px] w-full h-fit flex flex-col custom-gap-3 items-center justify-center text-center">
+    <div className="md:max-w-[392px] w-full h-fit flex flex-col custom-gap-3 items-center justify-center text-center">
       <p className="p-semibold">{data?.title}</p>
       <div className="flex flex-col">
         {Array.isArray(data?.text) ? (

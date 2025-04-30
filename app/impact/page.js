@@ -52,7 +52,7 @@ const Impact = () => {
         height={392}
         alt="Multiple people working together to sew clothing."
       />
-      <div className="w-full px-24  dynamic-padding justify-center items-center">
+      <div className="w-full  dynamic-padding justify-center items-center">
         {screenWidth > 768 ? (
           <h1 className="w-full text-center ">{text}</h1>
         ) : (

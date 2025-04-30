@@ -116,13 +116,15 @@ export default function Home() {
       </div>
       <div className="flex flex-col custom-gap-3 dynamic-padding ">
         <h2>Everlanes Best Sellers.</h2>
-        <div className="flex custom-gap-9">
+        {screenWidth > 768? <div className="flex custom-gap-9">
           {loading ? (
             <Loading number={4} />
           ) : (
             <Products items={bestSeller} showHearted={true} />
           )}
-        </div>
+        </div> :         <div className="max-w-full overflow-hidden">
+          <Carousel newArrivals={bestSeller} isLoading={loading} />
+        </div>}
       </div>
       <div className="w-full dynamic-padding pr-0 h-fit flex md:flex-row flex-col md:custom-gap-9 custom-gap-3 items-center justify-center">
         <div className="w-full md:max-w-[606px] md:min-w-[606px] max-h-[285px] h-[770px] bg-[url('https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/4d5ab00b_8430/womens-cheeky-relaxed-straight-jean-vintage-mid')] bg-cover bg-center p-3">

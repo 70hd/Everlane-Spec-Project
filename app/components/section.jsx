@@ -5,7 +5,7 @@ const Section = ({ image, alt, title, description, value }) => {
     <section
       className={`w-full items-center h-fit ${
         value > 0 ? "md:flex-row flex-col" : "md:flex-row-reverse flex-col"
-      } flex custom-gap-9 dynamic-padding`}
+      } flex custom-gap-9 dynamic-x-padding lg:mb-12 md:mb-6 sm:mb-3 mb-3`}
     >
       <Image
         src={image}
