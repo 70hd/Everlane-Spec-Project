@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full h-fit py-4 items-center justify-center bg-black text-white text-center">
-        <p className="h-fit w-full">© 2025 TrendSphere. All Rights Reserved.</p>
+        <p className="h-fit w-full">© 2025 Spec Everlane Project. All Rights Reserved.</p>
       </div>
     </footer>
   );

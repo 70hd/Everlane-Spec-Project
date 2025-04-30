@@ -8,8 +8,9 @@ import Form from "./form";
 import { useAuth } from "../context/authContext";
 import { FORMS } from "../../data/forms";
 import bcrypt from "bcryptjs";
+import PrimaryButton from "../foundation/primary-button";
 
-const PopupModal = ({ delay = 15000, account, setStatus }) => {
+const PopupModal = ({ delay = 15000, account,canScroll, setStatus, spec }) => {
   const { authData, setAuthData } = useAuth();
   const [formData, setFormData] = useState({
     username: authData.username,
@@ -28,6 +29,21 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
   const [modal, setModal] = useState(false);
 
   const [opend, setOpend] = useState(0);
+  const [specModal, setSpecModal] = useState(false);
+  const [specOpend, setSpecOpend] = useState(0);
+
+  
+useEffect(() => {
+  if (!canScroll && (specOpend?  specOpend < 1: opend < 1 )) {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
+  return () => {
+    document.body.classList.remove("overflow-hidden");
+  };
+}, [canScroll,specModal,specOpend,opend,modal]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -92,6 +108,8 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
     if (savedOpend) {
       setOpend(parseInt(savedOpend, 10) || 0);
     }
+    const savedSpecOpend = Cookies.get("specOpend");
+    if (savedSpecOpend) setSpecOpend(parseInt(savedSpecOpend, 10) || 0);
   }, []);
 
   useEffect(() => {
@@ -104,6 +122,12 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
     return () => clearTimeout(timer);
   }, [delay, opend]);
 
+  useEffect(() => {
+    if (spec && specOpend < 1) {
+      setSpecModal(true);
+    }
+  }, [spec, specOpend]);
+
   const updateOpendCount = () => {
     const updated = opend + 1;
     setOpend(updated);
@@ -115,7 +139,16 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
     updateOpendCount();
   };
 
-  if ((!modal || opend >= 1) && !account) return null;
+  const closeSpecModal = () => {
+    setSpecModal(false);
+    const updated = specOpend + 1;
+    setSpecOpend(updated);
+    Cookies.set("specOpend", updated.toString(), { expires: 2 });
+  };
+
+  if (spec && !account && (!specModal || specOpend >= 1)) return null;
+
+  if (!account && ((!spec && (!modal || opend >= 1)) || (spec && (!specModal || specOpend >= 1)))) return null;
 
   return (
     <section>
@@ -123,7 +156,7 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
         <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/30">
           <div className="w-fit md:w-[702px] h-fit flex flex-col p-12 custom-gap-9 bg-white border border-black/25">
             <div className="border-b-black/50 border-b-[1px] py-3 flex justify-between">
-              <h1>Account</h1>
+              <h1>Update Your Account</h1>
               <button onClick={() => setStatus("")}>
                 <Image
                   src="/close.svg"
@@ -138,7 +171,7 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
             <Form
               FORMS={FORMS}
               setLoading
-              title={"Contact Details"}
+              h2Title={"Enter in your new account information"}
               loading={loading}
               setFormData={setFormData}
               formData={formData}
@@ -149,6 +182,23 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
                 "Woman wearing a heather taupe cocoon coat, standing with hands in pockets."
               }
             />
+          </div>
+        </div>
+      ) : specModal ? (
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/30">
+          <div className="w-fit md:w-[702px] h-fit flex flex-col md:p-12 p-6 custom-gap-9 bg-white border border-black/25">
+            <div className="border-b-black/50 border-b-[1px] py-3">
+              <h1>This is a spec project</h1>
+            </div>
+            <h2>Please read and agree to the terms to proceed.</h2>
+            <div className="w-full h-[125px] overflow-y-auto">
+              <p>
+                These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.   These are your terms and conditions. Please scroll through and read them fully before continuing.
+              </p>
+            </div>
+             <button className="sm:w-fit w-full min-w-fit h-fit p-3 border border-black bg-black text-white hover:bg-black/75">
+             I agree to the terms
+      </button>
           </div>
         </div>
       ) : (

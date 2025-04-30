@@ -17,7 +17,7 @@ const Navbar = () => {
   const { cart } = useCart();
   const [isCart, setIsCart] = useState([]);
   const [title, setTitle] = useState(
-    "Casual Cool – Everyday Looks You’ll Love"
+    "Disclaimer - This is a prototype project for demo purposes"
   );
   const screenWidth = useScreenWidth();
   const [hasMounted, setHasMounted] = useState(false);
@@ -27,12 +27,15 @@ const Navbar = () => {
   const [dropDown, setDropDown] = useState(false);
   const [status, setStatus] = useState("");
 
+
+
   const TITLES = [
-    "Casual Cool – Everyday Looks You’ll Love",
-    "Fresh Styles – Effortless Fashion Choices",
-    "Comfort Meets Trend – Shop the Best Looks",
-    "Relaxed Yet Stylish – Find Your Perfect Outfit",
-    "On-the-Go Looks – Stay Stylish Every Day",
+    "Disclaimer - This is a prototype project for demo purposes",
+    "Disclaimer - Final product may differ",
+    "Disclaimer - For internal use only",
+    "Disclaimer - Concept design in progress",
+    "Disclaimer - Not for commercial use",
+    "Disclaimer - Visual representation only, not a final product",
   ];
 
   useEffect(() => {
@@ -162,7 +165,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-40 w-full h-fit flex flex-col gap-0 bg-white text-black border-b border-black/25">
       <div className="w-full h-fit py-3 bg-black text-white text-sm font-normal items-center text-center">
-        {hasMounted ? title : "Casual Cool – Everyday Looks You’ll Love"}
+        {hasMounted ? title : "Disclaimer - This is a prototype project for demo purposes"}
       </div>
       <div className="w-full dynamic-x-padding py-4 h-fit items-center lg:justify-between md:gap-[52px] flex justify-between custom-gap-3">
         {screenWidth < 1112 && (
@@ -232,7 +235,7 @@ const Navbar = () => {
                 />
                 {dropDown && (
                   <Dropdown
-                    accountOptions={["Account", "Log Out"]}
+                    accountOptions={["Update Account", "Log Out"]}
                     typeClicked={dropDown}
                     setTypeClicked={setDropDown}
                     setAccountStatus={setStatus}
@@ -255,9 +258,10 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {status === "Account" && (
-        <PopupModal setStatus={setStatus} account={true} />
+      {status === "Update Account" && (
+        <PopupModal setStatus={setStatus} canScroll={true} account={true}  />
       )}
+     
       {modal && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-10"
@@ -274,6 +278,7 @@ const Navbar = () => {
         shopClicked={shopClicked}
         setShopClicked={setShopClicked}
       />
+      
     </nav>
   );
 };

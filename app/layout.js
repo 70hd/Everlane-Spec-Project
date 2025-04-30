@@ -31,7 +31,8 @@ export default function RootLayout({ children }) {
         <CartProvider>
             <AuthProvider> {/* Wrap with AuthProvider */}
               <Navbar />
-              <PopupModal />
+              <PopupModal canScroll={true}/>
+              <PopupModal spec={true}/>
               {children}
               <Footer />
             </AuthProvider>

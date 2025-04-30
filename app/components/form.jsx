@@ -20,6 +20,7 @@ const Form = ({
   error,
   setError,
   subTitle,
+  h2Title
 }) => {
   const handleChange = useCallback(e => {
     const {name, value } = e.target; 
@@ -140,6 +141,7 @@ const Form = ({
           <div className="text-center flex flex-col gap-4">
             <h1>{title}</h1>
             {subTitle && <p>{subTitle}</p>}
+            {h2Title && <h2>{h2Title}</h2>}
             {error.final && <p className="text-red-500">{error.final}</p>}
           </div>
 

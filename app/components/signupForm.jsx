@@ -27,7 +27,7 @@ export default function SignUpForm({
 
   // const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
-  
+
 
 
   
@@ -113,7 +113,7 @@ const names = FORMS.map(f => f.name);
             disabled={loading}
             className="w-full p-3 border border-black bg-black hover:bg-black/75 text-white"
           >
-            {loading ? "Submitting..." : "Sign up"}
+            {loading ? "Submitting..." : isLogIn? "Log In":"Sign up"}
           </button>
         </form>
               {/* ------------- optional image column ------------------------- */}
