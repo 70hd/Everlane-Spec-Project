@@ -118,7 +118,7 @@ const Form = ({
   const FormSection = ({ fields, start, end }) => (
     <div
       className={`flex ${
-        start === 0 && end === 2 ? "flex-row custom-gap-6" : "flex-col custom-gap-6"
+        start === 0 && end === 2 ? "sm:flex-row flex-col custom-gap-6" : "flex-col custom-gap-6"
       }  w-full`}
     >
       {fields.slice(start, end).map((field, id) => (

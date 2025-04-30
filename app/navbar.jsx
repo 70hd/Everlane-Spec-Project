@@ -109,7 +109,7 @@ const Navbar = () => {
   const ALL_CATEGORIES_AND_FILTERS = [
     {
       category: "Home",
-      link: "/home",
+      link: "/",
     },
     {
       category: "About Us",
