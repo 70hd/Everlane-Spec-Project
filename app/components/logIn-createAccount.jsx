@@ -43,6 +43,12 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
 
       const text = await response.text();
       let data;
+      if(text.includes("error")) {
+        setError((prev) => ({
+          ...prev,
+          final: text,
+        }));
+      }
 
       try {
         data = JSON.parse(text);
@@ -72,7 +78,7 @@ const Accounts = ({ isLogIn, setIsLogIn }) => {
         setIsLogIn(true);
       }
     } catch (err) {
-      console.error("Error:", err);
+      
       setError((prev) => ({
         ...prev,
         final: "Something went wrong.",

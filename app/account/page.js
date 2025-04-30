@@ -26,11 +26,12 @@ export default function Account() {
 
   return (
     <main className="items-center w-full justify-center flex flex-col custom-gap-9 ">
-      {!authData.loggedIn && (
+      {!authData.loggedIn ? (
         <div className="w-full h-fit flex flex-col custom-gap-3 ">
           <Accounts isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
         </div>
-      )}
+      ): <h1>Loading...</h1>}
+
     </main>
   );
 }

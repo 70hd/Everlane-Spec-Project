@@ -13,6 +13,8 @@ export default function SignUpForm({
   onSuccess,
   formData,
   showLogInInfo,
+  error,
+  setError,
 //   loading,
   setFormData,
   imageAlt,
@@ -23,8 +25,9 @@ export default function SignUpForm({
 
 
 
-  const [error, setError] = useState({});
+  // const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
+  
 
 
   
