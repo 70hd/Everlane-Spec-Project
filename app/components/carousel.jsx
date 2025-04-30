@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Products from "./product";
 import Loading from "./loading";
+import useScreenWidth from "./screen-width";
 
 const Carousel = ({ newArrivals, isLoading }) => {
+  const screenWidth = useScreenWidth();
   const [offset, setOffset] = useState(0);
   const containerRef = useRef(null);
 
-  const ITEM_WIDTH = 36 + 285;
+  const ITEM_WIDTH = screenWidth < 360? 36 + 285: 82+ 36 +285;
 
   const MAX_OFFSET = -(ITEM_WIDTH * (newArrivals.length - 2))
 

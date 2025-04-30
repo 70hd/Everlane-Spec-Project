@@ -83,7 +83,7 @@ export default function Home() {
                   <h1 className="sm:max-w-[249px]">{item.text}</h1>
                 )}
 
-                {screenWidth < 360 ? (
+                {screenWidth > 360 ? (
                   <a href={item.href}>
                     <Image
                       src={item.image1}
@@ -126,17 +126,24 @@ export default function Home() {
           <Carousel newArrivals={bestSeller} isLoading={loading} />
         </div>}
       </div>
-      <div className="w-full dynamic-padding pr-0 h-fit flex md:flex-row flex-col md:custom-gap-9 custom-gap-3 items-center justify-center">
-        <div className="w-full md:max-w-[606px] md:min-w-[606px] max-h-[285px] h-[770px] bg-[url('https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/4d5ab00b_8430/womens-cheeky-relaxed-straight-jean-vintage-mid')] bg-cover bg-center p-3">
-          <div className="w-full max-w-[250px] h-fit flex flex-col custom-gap-3 text-black">
-            <h1>Fashion That Cares</h1>
-            <p>Look good, feel good, do good.</p>
-          </div>
-        </div>
-        <div className="max-w-full overflow-hidden">
-          <Carousel newArrivals={limitedAvailability} isLoading={loading} />
-        </div>
-      </div>
+      <div className="w-full dynamic-padding pr-0 flex h-full flex-col md:flex-row flex-wrap custom-gap-3 md:custom-gap-9 items-center justify-center">
+  <div
+    className="w-full md:flex-[1_1_0] md:basis-0 md:shrink md:grow md:min-h-[770px] max-h-[770px] min-h-[392px] h-full bg-cover bg-center p-3"
+    style={{
+      backgroundImage:
+        "url('https://media.everlane.com/images/c_fill,w_828,ar_4:5,q_auto:best:sensitive,dpr_2.0,f_auto/i/4d5ab00b_8430/womens-cheeky-relaxed-straight-jean-vintage-mid')",
+    }}
+  >
+    <div className="w-full max-w-[250px] h-fit flex flex-col custom-gap-3 text-black">
+      <h1>Fashion That Cares</h1>
+      <p>Look good, feel good, do good.</p>
+    </div>
+  </div>
+
+  <div className="w-full md:flex-[1_1_0] md:basis-0 md:shrink md:grow overflow-hidden">
+    <Carousel newArrivals={limitedAvailability} isLoading={loading} />
+  </div>
+</div>
       <div className="w-full h-fit flex md:flex-row flex-col custom-gap-9 dynamic-padding">
         {COLLECTIONS.map((item, index) => {
           return (
