@@ -12,10 +12,9 @@ const Carousel = ({ newArrivals, isLoading }) => {
   const [offset, setOffset] = useState(0);
   const containerRef = useRef(null);
 
-  const ITEM_WIDTH = screenWidth < 360? 36 + 285: 82+ 36 +285;
+  const ITEM_WIDTH = screenWidth < 360 ? 36 + 285 : 82 + 36 + 285;
 
-  const MAX_OFFSET = -(ITEM_WIDTH * (newArrivals.length - 2))
-
+  const MAX_OFFSET = -(ITEM_WIDTH * (newArrivals.length - 2));
 
   const handleSlide = (dir) => {
     setOffset((prev) =>
@@ -28,7 +27,7 @@ const Carousel = ({ newArrivals, isLoading }) => {
   const Arrow = ({ direction }) => (
     <button
       aria-label={direction === "prev" ? "Previous slide" : "Next slide"}
-      onClick={() => handleSlide(direction)}
+      onClick={() => !isEmpty && handleSlide(direction)}
       className="p-2"
     >
       <Image
@@ -62,16 +61,24 @@ const Carousel = ({ newArrivals, isLoading }) => {
       <div className="overflow-hidden" ref={containerRef}>
         <motion.div
           className="flex flex-row custom-gap-9"
-          style={{
+          style={!isEmpty && {
             width: ITEM_WIDTH * newArrivals?.length + newArrivals?.length * 36,
           }}
           animate={{ x: offset }}
           transition={{ stiffness: 10, damping: 25 }}
         >
+          
           {isEmpty ? (
-            <div className="max-h-[392px] flex flex-row">
-              <Loading number={4} />
-            </div>
+       <section className="h-fit flex custom-gap-9 overflow-hidden w-full">
+              {Array(8)
+                .fill("")
+                .map((_, i) => (
+                  <div
+                    className="skeleton skeleton-text min-w-[285px] h-[392px]"
+                    key={i}
+                  />
+                ))}
+            </section>
           ) : (
             <Products items={newArrivals} sameSize={true} />
           )}

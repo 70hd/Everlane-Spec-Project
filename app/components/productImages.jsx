@@ -13,18 +13,21 @@ const ProductImages = ({ product }) => {
       setImageSourceNumber((prev) => prev + value);
     }
   };
-  const Arrow = ({side}) => {
+  const Arrow = ({ side, disabled }) => {
+    const src = disabled ? "/error-mouse.svg" : `/${side}-mouse-arrow.svg`;
     return (
       <Image
-                src={`/${side}-mouse-arrow.svg`}
-                width={36}
-                height={36}
-                alt={`${side} Arrow`}
-                className={`absolute ${side}-0 top-1/2 -translate-y-1/2 cursor-pointer`}
-                onClick={() => ToggleChange(side === "left" ? -1: 1)}
-              />
-    )
-  }
+        src={src}
+        width={36}
+        height={36}
+        alt={`${side} Arrow`}
+        className={`absolute ${side}-0 top-1/2 -translate-y-1/2 cursor-pointer`}
+        onClick={() => {
+          if (!disabled) ToggleChange(side === "left" ? -1 : 1);
+        }}
+      />
+    );
+  };
   return (
     <section className="w-full max-w-[606px] h-fit flex flex-col custom-gap-6  ">
       {screenWidth > 768 ? (
@@ -42,8 +45,8 @@ const ProductImages = ({ product }) => {
         <div className="relative bg-black">
           {screenWidth > 300 && (
             <>
-             <Arrow side={"left"}/>
-             <Arrow side={"right"}/>
+             <Arrow side="left" disabled={imageSourceNumber === 0} />
+             <Arrow side="right" disabled={imageSourceNumber === product?.images.length - 1} />
             </>
           )}
           <Image
