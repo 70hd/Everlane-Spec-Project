@@ -76,12 +76,12 @@ const ProductInfo = ({
               );
             })}
           </div>
-          <p>(2443 Reviews) </p>
+          <p>({product.id * 24 +493 *2} Reviews) </p>
         </div>
       </div>
       <div className="w-[136px] h-fit flex justify-between">
         <p>${sale}</p>
-        <p className=" text-gray-800">${product?.price}</p>
+        <p className=" text-black/50 line-through">${product?.price}</p>
       </div>
       <p className="max-w-[392px] w-full">{product?.description}</p>
     </section>

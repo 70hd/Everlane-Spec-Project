@@ -8,25 +8,25 @@ const Page = () => {
       image: "/mission.png",
       value: 1,
       alt: "Person folding a gray button-up shirt.",
-      title: "Our Impact at a Glance",
+      title: "A Glimpse Into Our Impact",
       description:
-        "We’ve reduced water use by 50%, planted over 1,000 trees, and use 75% organic or recycled materials to minimize our footprint.",
+        "From reducing water usage by 50% to planting over 1,000 trees, our journey reflects real change. With 75% of our materials now recycled or organic, every product tells a story of purpose and progress.",
     },
     {
       image: "/sustainability.png",
       value: -1,
       alt: "Multiple pieces of clothing stacked on top of each other.",
-      title: "Customer Role in Sustainability",
+      title: "How You Help Shape a Greener Future",
       description:
-        "By choosing TrendSphere, you support eco-friendly fashion and can amplify your impact by reusing packaging and spreading the message of sustainability.",
+        "Every TrendSphere purchase supports conscious fashion. Reuse our packaging, advocate for sustainability, and be part of a movement where style and responsibility walk hand in hand.",
     },
     {
       image: "/values.png",
       value: 1,
       alt: "Woman smiling at the camera while sewing clothing.",
-      title: "Certifications or Partnerships",
+      title: "Ethical Recognition & Global Standards",
       description:
-        "Our certifications, like Fair Trade and GOTS, and partnerships in carbon offset programs reflect our dedication to ethical, sustainable fashion.",
+        "We’re proud partners in carbon offset initiatives and holders of globally respected certifications like GOTS and Fair Trade—ensuring our fashion aligns with your values.",
     },
   ];
   return (

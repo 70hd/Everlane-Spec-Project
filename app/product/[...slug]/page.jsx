@@ -124,7 +124,7 @@ const ProductsPage = ({ params }) => {
       {product ? (
         <div className="w-full flex md:flex-row flex-col gap-2 md:custom-gap-9 h-fit relative dynamic-x-padding">
           <ProductImages product={product} />
-          <div className="sticky top-[100px] md:w-[606px] w-full sm:h-[840px]  flex flex-col justify-center custom-gap-6">
+          <div className="sticky top-[100px] md:w-[606px] w-full sm:h-[840px] p-6 flex flex-col justify-center custom-gap-6">
             <ProductInfo
               setIsHearted={setIsHearted}
               isHearted={isHearted}

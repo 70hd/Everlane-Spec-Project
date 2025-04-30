@@ -276,8 +276,9 @@ const Cart = ({ modal }) => {
               <div className="flex  flex-col custom-gap-3">
               <p className="hidden md:block text-red-600">(20% Off)</p>
                 <div className="flex justify-between w-[134px]">
-                  <p>${price}</p>
-                  <p className=" text-gray-800">${(price * 0.8).toFixed(2)}</p>
+                <p className=" text-gray-800">${(price * 0.8).toFixed(2)}</p>
+                  <p className="text-black/75 line-through">${price}</p>
+               
                 </div>
 
                 <div className="flex gap-[6px] p-3 border border-black w-fit">
