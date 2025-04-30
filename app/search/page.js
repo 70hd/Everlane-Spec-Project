@@ -38,7 +38,7 @@ const Page = () => {
     setCurrentUrl(window.location.href);
   }, []);
   return (
-    <main className="flex flex-col gap-9 dynamic-padding">
+    <main className="flex flex-col custom-gap-9 dynamic-padding">
         <SearchInfo
           finalProducts={finalProducts}
           products={products}
@@ -61,7 +61,7 @@ const Page = () => {
       ) : (
         <Products items={finalProducts} />
       )}
-                        <NoProductResults setFinalFilters={setFinalFilters} finalFilters={finalFilters} ifStatement={(!loading && finalProducts.length === 0 && finalFilters.length > 0)}/>
+          <NoProductResults setFinalFilters={setFinalFilters} finalFilters={finalFilters} ifStatement={(!loading && finalProducts.length === 0 && finalFilters.length > 0)}/>
     </main>
   );
 };

@@ -58,8 +58,8 @@ const Filters = ({
     if (!category) return null;
 
     return (
-      <div className="flex flex-col gap-3">
-        <div className="w-full h-fit flex gap-3 justify-start items-center">
+      <div className="flex flex-col custom-gap-3">
+        <div className="w-full h-fit flex custom-gap-3 justify-start items-center">
           <h2>{category}</h2>
           <AnimatedArrow
             onClick={() =>
@@ -75,7 +75,7 @@ const Filters = ({
 
         </div>
         {openCategories.includes(category) && (
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col custom-gap-3">
             {filters.map((filter, index) => {
               const label = filter.text || filter;
               // multi-select categories, check if the filter is selected
@@ -244,7 +244,7 @@ const Filters = ({
         setModal={setModal}
         categoriesAndFilters={ALL_CATEGORIES_AND_FILTERS}
       />
-      <div className="w-full h-fit flex gap-9"></div>
+      <div className="w-full h-fit flex custom-gap-9"></div>
     </section>
   );
 };

@@ -2,7 +2,7 @@ import PrimaryButton from "./foundation/primary-button";
 
 export default function Custom404() {
   return (
-  <main className="w-full flex dynamic-padding flex-col gap-6 items-start justify-start">
+  <main className="w-full flex dynamic-padding flex-col custom-gap-6 items-start justify-start">
     <h1>
       Page Not Found
     </h1>

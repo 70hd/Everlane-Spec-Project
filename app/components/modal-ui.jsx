@@ -10,9 +10,9 @@ const FilterActions = ({
   setActiveSingleFilters,
   ApplyFilters,
 }) => (
-  <div className="flex flex-col gap-3 items-center justify-center">
+  <div className="flex flex-col custom-gap-3 items-center justify-center">
     <p>{activeFilters.length} Active Filters</p>
-    <div className="w-fit h-fit flex gap-3">
+    <div className="w-fit h-fit flex custom-gap-3">
       <button
         className="w-fit h-fit p-3 bg-black hover:bg-black/75 text-white"
         onClick={() => {
@@ -67,7 +67,7 @@ const ModalUi = ({
     : "-translate-x-0";
   const BackButton = ({ onClick }) => (
     <div
-      className={`flex gap-3 cursor-pointer absolute top-6 items-center transition-transform duration-500 transform ${showNotShopClicked}`}
+      className={`flex custom-gap-3 cursor-pointer absolute top-6 items-center transition-transform duration-500 transform ${showNotShopClicked}`}
       onClick={onClick}
     >
       <Image
@@ -86,7 +86,7 @@ const ModalUi = ({
       role="dialog"
       aria-modal="true"
       aria-label="Filter and shop modal"
-      className={`fixed top-0  h-screen z-50 border border-black/25 bg-white custom-2 p-12 pt-14 gap-9 transition-transform duration-500 overflow-hidden flex flex-col ${
+      className={`fixed top-0  h-screen z-50 border border-black/25 bg-white custom-2 p-12 pt-14 custom-gap-9 transition-transform duration-500 overflow-hidden flex flex-col ${
         value > 0 ? "right-0" : "left-0"
       } transform ${
         modal
@@ -131,7 +131,7 @@ const ModalUi = ({
 
       {/* Main Modal Content */}
       <div
-        className={`w-full flex flex-col gap-6 overflow-y-auto max-h-[80vh] transition-transform duration-500 transform ${
+        className={`w-full flex flex-col custom-gap-6 overflow-y-auto max-h-[80vh] transition-transform duration-500 transform ${
           shopClicked
             ? "translate-x-[500px]"
             : value > 0
@@ -176,10 +176,10 @@ const ModalUi = ({
 
       {/* Shop View */}
       <div
-        className={`w-[285px] flex absolute top-[112px] flex-col gap-6 overflow-y-auto max-h-[80vh] transition-transform duration-500 transform ${showNotShopClicked}`}
+        className={`w-[285px] flex absolute top-[112px] flex-col custom-gap-6 overflow-y-auto max-h-[80vh] transition-transform duration-500 transform ${showNotShopClicked}`}
       >
         {SHOP_OPTIONS.map((section) => (
-          <div key={section.type} className="flex w-full flex-col gap-3">
+          <div key={section.type} className="flex w-full flex-col custom-gap-3">
             <h2>{section.type}</h2>
             <div className="grid grid-cols-2 gap-4">
               {section.links.map((item, index) => (

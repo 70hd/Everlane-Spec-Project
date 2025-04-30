@@ -3,7 +3,7 @@ import React from "react";
 const NoProductResults = ({setFinalFilters, finalFilters,ifStatement}) => {
   if (ifStatement) {
     return (
-      <div className="flex flex-col gap-6 dynamic-padding">
+      <div className="flex flex-col custom-gap-6 dynamic-padding">
         <h1>Uh oh. No results found</h1>
         <h2>
           There are not products coming up with your filters{" "}

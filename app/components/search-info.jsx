@@ -124,26 +124,7 @@ const SearchInfo = ({
     }
   }, [searchedProducts]);
 
-  // useEffect(() => {
-  //   console.log({
-  //     finalFilters: testFilters,
-  //     testProducts: displayProducts,
-  //     // displayProducts: displayProducts,
-  //     ALL_CATEGORIES_AND_FILTERS: ALL_CATEGORIES_AND_FILTERS,
-  //     status: status,
-  //     colors: colors,
-  //   }
-  //   )
-  //   const k = ProductFilters({
-  //     finalFilters: testFilters,
-  //     finalProducts: testProducts,
-  //     setFinalProducts: setTestProducts,
-  //     ALL_CATEGORIES_AND_FILTERS,
-  //     status,
-  //     colors,
-  //   });
-  //   console.log(k)
-  // }, [testFilters]);
+
   const categoryFilter = searchedProducts.filter(
     (prev) => prev.status === status
   );
@@ -177,24 +158,10 @@ const SearchInfo = ({
     }
   }, [status, searchedProducts]);
 
-  // useEffect(() => {
-  //   if (status === "All Products") {
-  //     setFinalProducts(searchedProducts);
-  //   } else {
-  //     if (product) {
-  //       return updateSearchedProducts(status.toLowerCase());
-  //     } else {
-  //       return setFinalProducts(categoryFilter);
-  //     }
-  //   }
-  // }, [status]);
-  // useEffect(() => {
-  //   setFinalProducts(searchedProducts);
-  // }, [searchedProducts]);
   return (
-    <section className="flex flex-col gap-6 mb-6">
+    <section className="flex flex-col custom-gap-6 mb-6">
       {(collections === false || product === false) && (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col custom-gap-3">
           <h1>
             {searchedProducts.length > 0
               ? `We found ${finalProducts.length} finalProducts`
@@ -207,7 +174,7 @@ const SearchInfo = ({
         <Search link={"search"} />
       )}
 
-      <div className=" w-full h-fit flex justify-between items-end">
+      <div className=" w-full h-fit flex justify-between gap-9   items-center">
         {!noDropdown ? (
           <Dropdown
             typeClicked={typeClicked}

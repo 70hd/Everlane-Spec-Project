@@ -34,11 +34,11 @@ const Dropdown = ({
       ];
 
   return (
-    <section className="relative w-fit h-fit flex flex-col gap-[6px] bg-white">
+    <section className="relative w-fit h-fit flex flex-col gap-[6px]  bg-white">
       {!accountOptions && (
-        <div className="w-fit h-fit flex gap-[6px] bg-white">
+        <div className="w-fit h-fit flex custom-gap-3 items-center bg-white">
           <button
-            className={`${!collections && "cursor-pointer"} capitalize`}
+            className={`${!collections && "cursor-pointer"} capitalize  w-fit text-start`}
             onClick={() => !collections && setTypeClicked((prev) => !prev)}
           >
             {status}

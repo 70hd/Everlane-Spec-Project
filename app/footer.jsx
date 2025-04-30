@@ -23,9 +23,9 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center justify-center">
       <div className="w-full dynamic-x-padding">
-        <div className="w-full h-fit justify-between flex flex-wrap gap-9 dynamic-padding bg-[#FFC68A] items-center">
+        <div className="w-full h-fit justify-between flex flex-wrap custom-gap-9 dynamic-padding bg-[#FFC68A] items-center">
          
-          <ul className="w-fit h-fit flex flex-col gap-3">
+          <ul className="w-fit h-fit flex flex-col custom-gap-3">
           <h2>Quick Links</h2>
             {LINKS.map((item, index) => {
               return (
@@ -37,7 +37,7 @@ const Footer = () => {
               );
             })}
           </ul>
-          <div className="w-[356px] h-fit flex flex-col gap-6">
+          <div className="w-[356px] h-fit flex flex-col custom-gap-6">
             <h1>Subscribe and let's stay connected!</h1>
             <EmailSignup cta={"Subscribe"} col={true} route={"/api/newsletter"}/>
           </div>

@@ -42,8 +42,8 @@ const ProductInfo = ({
     }
   };
   return (
-    <section className="w-full h-fit flex flex-col justify-center gap-6">
-      <div className="w-full h-fit flex flex-col gap-3 ">
+    <section className="w-full h-fit flex flex-col justify-center custom-gap-6">
+      <div className="w-full h-fit flex flex-col custom-gap-3 ">
         <div className="flex w-full justify-between">
           <p>{product?.status}</p>
           {showHearted && !loading ? (
@@ -61,8 +61,8 @@ const ProductInfo = ({
         </div>
 
         <h1>{product?.title}</h1>
-        <div className="w-fit flex gap-3 items-center justify-start">
-          <div className="flex gap-[3px]">
+        <div className="w-fit flex custom-gap-3 items-center justify-start flex-wrap">
+          <div className="flex  gap-[3px]">
             {["1", "2", "3", "4", "5"].map((index) => {
               return (
                 <Image
@@ -83,7 +83,7 @@ const ProductInfo = ({
         <p>${sale}</p>
         <p className=" text-gray-800">${product?.price}</p>
       </div>
-      <p className="w-[392px] ">{product?.description}</p>
+      <p className="max-w-[392px] w-full">{product?.description}</p>
     </section>
   );
 };

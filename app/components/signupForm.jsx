@@ -20,14 +20,8 @@ export default function SignUpForm({
   setIsLogIn,
   FORMS
 }) {
-  /* ---------- state ------------------------------------------------ */
-//   const [formData, setFormData] = useState({
-//     firstName: "",
-//     lastName: "",
-//     username: "",
-//     email: "",
-//     password: "",
-//   });
+
+
 
   const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
@@ -56,49 +50,16 @@ export default function SignUpForm({
     }
   };
 
-  /* ---------- render ---------------------------------------------- */
-  const FIELDS = [
-    { label: "First Name", name: "firstName", type: "text", placeholder: "Joe" },
-    { label: "Last Name",  name: "lastName",  type: "text", placeholder: "Ford" },
-    { label: "Username",   name: "username",  type: "text", placeholder: "joeford99" },
-    { label: "Email",      name: "email",     type: "email",placeholder: "joe@domain.com" },
-    { label: "Password",   name: "password",  type: "password", placeholder: "••••••••" },
-  ];
-//   const InputField = ({ field }) => {
-//     return (
-//       <div className="w-full" key={field.name}>
-//  <Input
-//                 key={f.name}
-//                 {...f}
-//                 id={f.name}
-//                 value={formData[f.name]}
-//                 onChange={handleChange}
-//                 error={error[f.name]}
-//               />
-//       </div>
-//     );
-//   };
 
-//   const FormSection = ({ fields, start, end }) => (
-//     <div
-//       className={`flex ${
-//         start === 0 && end === 2 ? "flex-row gap-6" : "flex-col gap-6"
-//       }  w-full`}
-//     >
-//       {fields.slice(start, end).map((field, id) => (
-//         <InputField key={start + id} id={start + id} field={field} />
-//       ))}
-//     </div>
-//   );
 const names = FORMS.map(f => f.name);
   return (
     <section className="w-full flex dynamic-y-padding flex-col md:flex-row items-center justify-between gap-10">
       {/* ------------- form column ----------------------------------- */}
-      <div className="w-full md:flex-1 flex flex-col gap-6">
+      <div className="w-full md:flex-1 flex flex-col custom-gap-6">
         <form
           noValidate
           onSubmit={handleSubmit}
-          className="w-full flex flex-col gap-9"
+          className="w-full flex flex-col custom-gap-9"
         >
           <div className="text-center flex flex-col gap-4">
             <h1>{title}</h1>
@@ -107,13 +68,13 @@ const names = FORMS.map(f => f.name);
           </div>
 
           {/* inputs */}
-          {/* <div className="w-full flex flex-col gap-6">
+          {/* <div className="w-full flex flex-col custom-gap-6">
             <FormSection fields={FORMS} start={0} end={2} />
             <FormSection fields={FORMS} start={2} end={FORMS.length} />
           </div> */}
-        <div className="w-full flex flex-col gap-6">
+        <div className="w-full flex flex-col custom-gap-6">
   {/* First two fields in a row */}
-  <div className="flex flex-col md:flex-row gap-6">
+  <div className="flex flex-col md:flex-row custom-gap-6">
     {FORMS.slice(0, 2).map((f) => (
       <div key={f.name} className="w-full">
         <Input
@@ -129,7 +90,7 @@ const names = FORMS.map(f => f.name);
   </div>
 
   {/* Rest of fields stacked vertically */}
-  <div className="flex flex-col gap-6">
+  <div className="flex flex-col custom-gap-6">
     {FORMS.slice(2).map((f) => (
       <Input
         key={f.name}

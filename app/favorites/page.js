@@ -49,13 +49,13 @@ const Favorites = () => {
   if (!hasMounted) return null;
 
   return (
-    <main className="flex flex-col gap-9 dynamic-x-padding">
+    <main className="flex flex-col custom-gap-9 dynamic-x-padding">
       {!authData.loggedIn ? (
-        <div className="w-fit h-fit flex flex-col gap-3">
+        <div className="w-fit h-fit flex flex-col custom-gap-3">
           <Accounts isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
         </div>
       ) : (
-        <div className="flex gap-9 w-full flex-wrap">
+        <div className="flex custom-gap-9 w-full flex-wrap">
           {isLoading ? (
             <Loading number={4} />
           ) : (

@@ -46,12 +46,12 @@ const Carousel = ({ newArrivals, isLoading }) => {
 
   return (
     <section
-      className="w-fit h-fit flex flex-col gap-9"
+      className="w-fit h-fit flex flex-col custom-gap-9"
       role="region"
       aria-label="New arrivals carousel"
     >
       {/* Arrows */}
-      <div className="flex gap-3 items-start justify-start min-h-[40px]">
+      <div className="flex custom-gap-3 items-start justify-start min-h-[40px]">
         <Arrow direction="prev" />
         <Arrow direction="next" />
       </div>
@@ -59,7 +59,7 @@ const Carousel = ({ newArrivals, isLoading }) => {
       {/* Sliding Products */}
       <div className="overflow-hidden" ref={containerRef}>
         <motion.div
-          className="flex flex-row gap-9"
+          className="flex flex-row custom-gap-9"
           style={{
             width: ITEM_WIDTH * newArrivals?.length + newArrivals?.length * 36,
           }}

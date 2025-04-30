@@ -93,7 +93,7 @@ const EmailSignup = ({ col, cta, red, route,label }) => {
     <section
       className={`flex  ${
         col ? "flex-col" : "flex-row"
-      } gap-3 text-center items-start`}
+      } custom-gap-3 text-center items-start`}
     >
       <div className="flex flex-col w-full">
       <Error error={serverError} errorId={serverErrorId} />

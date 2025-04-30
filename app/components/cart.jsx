@@ -218,7 +218,7 @@ const Cart = ({ modal }) => {
     <section
       className={`sticky ${
         modal ? "w-fit" : "md:w-[606px] w-full"
-      } h-fit flex flex-col gap-9 dynamic-y-padding`}
+      } h-fit flex flex-col custom-gap-9 dynamic-y-padding`}
     >
       <div className="w-full flex justify-between">
         <h2>Cart({Carted?.length})</h2>
@@ -244,9 +244,9 @@ const Cart = ({ modal }) => {
               />
             </a>
 
-            <div className="flex flex-col gap-3 justify-between p-3 w-full">
-              <div className="flex gap-3 items-start w-full ">
-                <a href={`/product/${title}`} className="w-full flex flex-col gap-3">
+            <div className="flex flex-col custom-gap-3 justify-between p-3 w-full">
+              <div className="flex custom-gap-3 items-start w-full ">
+                <a href={`/product/${title}`} className="w-full flex flex-col custom-gap-3">
                 <p className="md:hidden block text-red-600">(20% Off)</p>
                     <h2>{title}</h2>
                     <p className="text-gray-800">
@@ -273,7 +273,7 @@ const Cart = ({ modal }) => {
                 )}
               </div>
 
-              <div className="flex  flex-col gap-3">
+              <div className="flex  flex-col custom-gap-3">
               <p className="hidden md:block text-red-600">(20% Off)</p>
                 <div className="flex justify-between w-[134px]">
                   <p>${price}</p>
@@ -302,8 +302,8 @@ const Cart = ({ modal }) => {
       })}
 
       {!modal && (
-        <div className="flex flex-col gap-3 w-full">
-          <div className="flex md:flex-row flex-col gap-3 w-full">
+        <div className="flex flex-col custom-gap-3 w-full">
+          <div className="flex md:flex-row flex-col custom-gap-3 w-full">
             <input
               type="text"
               placeholder="Enter Coupon"
@@ -335,7 +335,7 @@ const Cart = ({ modal }) => {
               )
             ))}
 
-          <div className="border-t text-gray-800 flex w-full flex-col gap-3 py-4">
+          <div className="border-t text-gray-800 flex w-full flex-col custom-gap-3 py-4">
             {[
               { title: "Subtotal", equation: subTotal.toFixed(2) },
               { title: "Sale", equation: (sale - subTotal).toFixed(2) },

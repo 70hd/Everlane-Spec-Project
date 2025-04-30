@@ -30,11 +30,11 @@ const Page = () => {
     },
   ];
   return (
-    <main className="flex flex-col gap-9">
+    <main className="flex flex-col custom-gap-9">
       <div
         className="w-full flex  items-center justify-center text-center bg-[url('/sustainabilityHero.png')] bg-no-repeat bg-center bg-cover h-[606px]"
       >
-        <div className="flex-col gap-6 w-[392px] text-white">
+        <div className="flex-col custom-gap-6 w-[392px] text-white">
           <h1>How to Contact Everlane Client Services</h1>
           <p>Choose your preferred method of contact and connect with us</p>
         </div>

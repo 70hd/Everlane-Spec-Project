@@ -23,7 +23,7 @@ const ShopModal = () => {
           onClick={() => setModal(false)}
         />}
         <ShopUi modal={modal} setModal={setModal} canScroll={true} />
-        <div className="w-full h-fit flex gap-9"></div>
+        <div className="w-full h-fit flex custom-gap-9"></div>
         
       </ModalPortal>
     </section>

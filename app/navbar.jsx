@@ -84,28 +84,14 @@ const Navbar = () => {
   const Section = ({ text, collections }) => {
     return (
       <div
-        className="h-fit flex flex-col gap-3"
+        className="h-fit flex flex-col custom-gap-3"
         onMouseLeave={() => setClicked()}
       >
-        <div className="h-fit w-fit flex gap-3 items-center">
+        <div className="h-fit w-fit flex custom-gap-3 items-center">
           <h2>{text}</h2>
           <AnimatedArrow onClick={() => !shopClicked && setShopClicked((prev) => !prev)} isActive={clicked === text}/>
 
-          {/* <motion.div
-            animate={{ rotate: clicked === text ? 90 : 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            onMouseEnter={() => shopClicked && setClicked(text)}
-            onClick={() => !shopClicked && setShopClicked((prev) => !prev)}
-            className="cursor-pointer"
-          >
-            <Image
-              src="/right-arrow.svg"
-              width={20}
-              height={20}
-              className="min-w-[20px]"
-              alt="arrow icon"
-            />
-          </motion.div> */}
+    
         </div>
 
         {clicked === text && (
@@ -178,7 +164,7 @@ const Navbar = () => {
       <div className="w-full h-fit py-3 bg-black text-white text-sm font-normal items-center text-center">
         {hasMounted ? title : "Casual Cool – Everyday Looks You’ll Love"}
       </div>
-      <div className="w-full dynamic-x-padding py-4 h-fit items-center lg:justify-between md:gap-[52px] flex justify-between gap-9">
+      <div className="w-full dynamic-x-padding py-4 h-fit items-center lg:justify-between md:gap-[52px] flex justify-between custom-gap-3">
         {screenWidth < 1112 && (
           <Image
             src="/filters-icon.svg"
@@ -190,10 +176,10 @@ const Navbar = () => {
           />
         )}
         {screenWidth > 1112 && (
-          <ul className="w-fit h-fit flex gap-6">
+          <ul className="w-fit h-fit flex custom-gap-6">
             {["Home", "Shop", "About Us", "Sustainability", "Contact"].map(
               (text, index) => (
-                <li className={`min-w-fit flex gap-3`} key={index}>
+                <li className={`min-w-fit flex custom-gap-3`} key={index}>
                   {text !== "Shop" ? (
                     <a
                       href={`/${
@@ -215,7 +201,7 @@ const Navbar = () => {
             )}
           </ul>
         )}
-        <a href="/" className="w-full max-w-[285px]">
+        <a href="/" className="w-full min-w-[64px] max-w-[192px]">
           <Image
             src="/logo.svg"
             width={285}
@@ -224,13 +210,13 @@ const Navbar = () => {
             className="w-full"
           />
         </a>
-        <div className=" w-fit h-fit flex gap-9 items-center">
+        <div className=" w-fit h-fit flex custom-gap-9 items-center">
           {screenWidth > 1112 && (
             <div className="relative w-[285px]">
               <Search link={"search"} />
             </div>
           )}
-          <div className="relative flex w-fit gap-3 items-center">
+          <div className="relative flex w-fit custom-gap-3 items-center">
             {/* {screenWidth < 1112 && (
               <Images url={"/search.svg"} link={"/search"} />
             )} */}

@@ -31,7 +31,7 @@ const Section = ({ item, clicked, setClicked }) => {
         height: height,
         transition: "height 0.3s ease-in-out",
       }}
-      className={`cursor-pointer w-full overflow-hidden flex flex-col gap-6 p-3 border-black border-b-[1px] ${
+      className={`cursor-pointer w-full overflow-hidden flex flex-col custom-gap-6 p-3 border-black border-b-[1px] ${
         item.Id === 1 ? "border-t-[1px]" : ""
       }`}
     >

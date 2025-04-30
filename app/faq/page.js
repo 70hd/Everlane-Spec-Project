@@ -40,8 +40,8 @@ const Page = () => {
 
 
   return (
-    <main className="flex w-full flex-col gap-9 dynamic-padding items-center justify-center">
-      <div className="max-w-[606px] w-full h-fit flex flex-col gap-6 items-center justify-center text-center">
+    <main className="flex w-full flex-col custom-gap-9 dynamic-padding items-center justify-center">
+      <div className="max-w-[606px] w-full h-fit flex flex-col custom-gap-6 items-center justify-center text-center">
         <h1 className="w-[392px]">Have Questions? We’ve Got Answers!</h1>
         <p className="w-[392px]">
           Simply type your question below to find the answers you need in

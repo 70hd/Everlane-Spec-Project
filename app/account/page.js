@@ -25,9 +25,9 @@ export default function Account() {
   if (!hasMounted) return null;
 
   return (
-    <main className="items-center w-full justify-center flex flex-col gap-9 ">
+    <main className="items-center w-full justify-center flex flex-col custom-gap-9 ">
       {!authData.loggedIn && (
-        <div className="w-full h-fit flex flex-col gap-3 ">
+        <div className="w-full h-fit flex flex-col custom-gap-3 ">
           <Accounts isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
         </div>
       )}

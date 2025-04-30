@@ -120,11 +120,11 @@ const ProductsPage = ({ params }) => {
   const sale = product?.price * ORIGINAL_SALE;
   const id = product?.id;
   return (
-    <main className="w-full h-fit flex flex-col gap-9">
+    <main className="w-full h-fit flex flex-col custom-gap-9">
       {product ? (
-        <div className="w-full flex md:flex-row flex-col gap-2 md:gap-9 relative dynamic-x-padding">
+        <div className="w-full flex md:flex-row flex-col gap-2 md:custom-gap-9 h-fit relative dynamic-x-padding">
           <ProductImages product={product} />
-          <div className="sticky top-[100px] md:w-[606px] w-full h-[840px] flex flex-col justify-center gap-6">
+          <div className="sticky top-[100px] md:w-[606px] w-full h-[840px]  flex flex-col justify-center custom-gap-6">
             <ProductInfo
               setIsHearted={setIsHearted}
               isHearted={isHearted}
@@ -162,9 +162,9 @@ const ProductsPage = ({ params }) => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-fit flex md:flex-row flex-col dynamic-x-padding gap-9 pt-20">
+        <div className="w-full h-fit flex md:flex-row flex-col dynamic-x-padding custom-gap-9 pt-20">
           <div className="max-w-[606px] md:min-w-[606px] max-h-[800px] w-full h-full skeleton-text skeleton" />
-          <div className="max-w-[606px] md:min-w-[606px] flex flex-col gap-9 w-full h-full">
+          <div className="max-w-[606px] md:min-w-[606px] flex flex-col custom-gap-9 w-full h-full">
             <h1>
               {finalUrl
                 .replace("everlane-spec-project.vercel.app/", "")
@@ -175,7 +175,7 @@ const ProductsPage = ({ params }) => {
           </div>
         </div>
       )}
-      <div className="flex flex-col gap-3 dynamic-padding">
+      <div className="flex flex-col custom-gap-3 dynamic-padding">
         <h2>More New Arrivals.</h2>
         <Products items={newArrivals} />
       </div>

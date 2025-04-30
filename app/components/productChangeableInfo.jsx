@@ -23,9 +23,9 @@ const ColorPicker = ({
   setActiveColor,
   setActiveColorHex,
 }) => (
-  <div className="w-full h-fit flex flex-col gap-3">
+  <div className="w-full h-fit flex flex-col custom-gap-3">
     <p>Color: {displayedColor}</p>
-    <div className="flex gap-3">
+    <div className="flex custom-gap-3">
       {color.map((item, index) => (
         <div
           key={index}
@@ -53,7 +53,7 @@ const ColorPicker = ({
 );
 
 const SizeSelector = ({ sizes, size, setSize }) => (
-  <div className="w-full flex flex-col gap-3 h-fit">
+  <div className="w-full flex flex-col custom-gap-3 h-fit">
     <div className="flex justify-between w-full">
       <p>Size</p>
       <a href="/size chart" className="underline">
@@ -65,7 +65,7 @@ const SizeSelector = ({ sizes, size, setSize }) => (
       name="options"
       value={size}
       onChange={(e) => setSize(e.target.value)}
-      className="w-[285px] h-fit p-3 border border-black"
+      className="max-w-[285px] h-fit p-3 border border-black"
     >
       {sizes.map((item, index) => (
         <option key={index} value={item}>
@@ -186,7 +186,7 @@ const ProductChangeableInfo = ({
   </button>
   ))
   return (
-    <section className="w-full h-fit flex flex-col justify-center gap-6">
+    <section className="w-full h-fit flex flex-col justify-center custom-gap-6">
       <ColorPicker
         color={color}
         displayedColor={displayedColor}
@@ -197,7 +197,7 @@ const ProductChangeableInfo = ({
       <SizeSelector sizes={product?.size || []} size={size} setSize={setSize} />
 
       {inventory !== 0 ? (
-        <div className="w-fit h-fit flex gap-6">
+        <div className="w-fit h-fit flex custom-gap-6 flex-wrap">
           <div className="w-fit h-fit flex gap-[6px] p-3 border border-black">
             <QuantityChanger
               value="minus"
@@ -214,7 +214,7 @@ const ProductChangeableInfo = ({
           <Button text={"Add to Cart"}/>
         </div>
       ) : (
-        <div className="w-full h-fit flex flex-col gap-3">
+        <div className="w-full h-fit flex flex-col custom-gap-3">
           <p>Get notified when this product is back in stock</p>
           <EmailSignup cta={"Submit"} red={true} route={"/api/newsletter"}/>
           

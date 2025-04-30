@@ -113,7 +113,7 @@ const Product = ({ item, itemId, setReload,sameSize }) => {
           />
         ) : null}
 
-        <div className="w-full h-fit flex flex-col gap-3 p-3">
+        <div className="w-full h-fit flex flex-col custom-gap-3 p-3">
           <p>{title}</p>
           <p className="p-semibold">${price}</p>
         </div>
@@ -124,7 +124,7 @@ const Product = ({ item, itemId, setReload,sameSize }) => {
 
 const Products = ({ items, setReload,sameSize }) => {
   return (
-    <section className="h-fit flex gap-9 flex-wrap w-full">
+    <section className="h-fit flex custom-gap-9 flex-wrap w-full">
       {items?.map((item, i) => (
         <Product
           itemId={item.id}

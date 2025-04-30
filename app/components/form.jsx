@@ -118,7 +118,7 @@ const Form = ({
   const FormSection = ({ fields, start, end }) => (
     <div
       className={`flex ${
-        start === 0 && end === 2 ? "flex-row gap-6" : "flex-col gap-6"
+        start === 0 && end === 2 ? "flex-row custom-gap-6" : "flex-col custom-gap-6"
       }  w-full`}
     >
       {fields.slice(start, end).map((field, id) => (
@@ -130,11 +130,11 @@ const Form = ({
   return (
     <section className="w-full  flex flex-col md:flex-row items-center justify-between gap-10">
       {/* Form Container */}
-      <div className="w-full  md:flex-1 flex flex-col gap-6">
+      <div className="w-full  md:flex-1 flex flex-col custom-gap-6">
         <form
           noValidate
           onSubmit={HandleFirstSubmit}
-          className="w-full flex flex-col gap-9"
+          className="w-full flex flex-col custom-gap-9"
         >
           <div className="text-center flex flex-col gap-4">
             <h1>{title}</h1>
@@ -142,7 +142,7 @@ const Form = ({
             {error.final && <p className="text-red-500">{error.final}</p>}
           </div>
 
-          <div className="w-full flex flex-col gap-6">
+          <div className="w-full flex flex-col custom-gap-6">
             <FormSection fields={FORMS} start={0} end={2} />
             <FormSection fields={FORMS} start={2} end={FORMS.length} />
           </div>

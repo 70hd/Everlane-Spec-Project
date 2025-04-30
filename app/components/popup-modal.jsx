@@ -121,7 +121,7 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
     <section>
       {account ? (
         <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/30">
-          <div className="w-fit md:w-[702px] h-fit flex flex-col p-12 gap-9 bg-white border border-black/25">
+          <div className="w-fit md:w-[702px] h-fit flex flex-col p-12 custom-gap-9 bg-white border border-black/25">
             <div className="border-b-black/50 border-b-[1px] py-3 flex justify-between">
               <h1>Account</h1>
               <button onClick={() => setStatus("")}>
@@ -152,7 +152,7 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
           </div>
         </div>
       ) : (
-        <div className="fixed top-0 right-0 z-40 max-w-[285px] md:max-w-[364px] h-screen flex flex-col pt-14 gap-6 p-12 bg-white border border-black/25">
+        <div className="fixed top-0 right-0 z-40 max-w-[285px] md:max-w-[364px] h-screen flex flex-col pt-14 custom-gap-6 p-12 bg-white border border-black/25">
           <div className="w-full flex justify-between items-start">
             <Image
               src="/logo.svg"
@@ -178,8 +178,8 @@ const PopupModal = ({ delay = 15000, account, setStatus }) => {
             alt="Woman wearing tan pants and a dark brown coat over a black undershirt, leaning on her right leg."
           />
 
-          <div className="flex gap-6 items-center">
-            <div className="max-w-[315px] flex flex-col gap-6">
+          <div className="flex custom-gap-6 items-center">
+            <div className="max-w-[315px] flex flex-col custom-gap-6">
               <h2 className="sm:text-center ">
                 Earn 10% <span className="text-[#FFC68A]">OFF</span> Your Next
                 Purchase

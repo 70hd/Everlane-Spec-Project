@@ -26,7 +26,7 @@ const ProductImages = ({ product }) => {
     )
   }
   return (
-    <section className="w-full max-w-[606px] h-fit flex flex-col gap-6">
+    <section className="w-full max-w-[606px] h-fit flex flex-col custom-gap-6  ">
       {screenWidth > 768 ? (
         product?.images.map((src, i) => (
           <Image
@@ -39,7 +39,7 @@ const ProductImages = ({ product }) => {
           />
         ))
       ) : (
-        <div className="relative">
+        <div className="relative bg-black">
           {screenWidth > 300 && (
             <>
              <Arrow side={"left"}/>
@@ -58,7 +58,7 @@ const ProductImages = ({ product }) => {
             }
             width={606}
             height={800}
-            className="w-full min-w-[392px] lg:min-h-[800px] h-auto flex-1"
+            className="w-full lg:min-h-[800px] min-h-[285px] min-w-[175px] h-auto flex-1"
             alt="featured products"
           />
         </div>

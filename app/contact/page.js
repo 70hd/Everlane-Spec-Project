@@ -110,7 +110,7 @@ const Page = () => {
   ];
 
   return (
-    <main className="w-full  items-center dynamic-padding justify-center h-fit flex flex-col gap-9">
+    <main className="w-full  items-center dynamic-padding justify-center h-fit flex flex-col custom-gap-9">
       <div className="w-full max-w-[606px]">
         <SignUpForm
           onSuccess={handleSuccess}
@@ -128,7 +128,7 @@ const Page = () => {
           setLoading={setLoading}
         />
       </div>
-      <div className="w-full flex gap-9 dynamic-y-padding">
+      <div className="w-full flex custom-gap-9 dynamic-y-padding">
         <ContactMethod data={CONTACT_TYPES} />
       </div>
     </main>

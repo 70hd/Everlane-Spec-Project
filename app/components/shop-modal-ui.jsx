@@ -25,12 +25,12 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
 
   return (
     <section
-      className={`fixed top-0 w-screen h-fit justify-end items-end border  bg-white z-10 dynamic-x-padding pb-12 flex flex-col gap-6 transition-transform duration-500 overflow-hidden transform ${
+      className={`fixed top-0 w-screen h-fit justify-end items-end border  bg-white z-10 dynamic-x-padding pb-12 flex flex-col custom-gap-6 transition-transform duration-500 overflow-hidden transform ${
         modal ? "translate-y-0" : "translate-y-[-1000px]"
       }`}
     >
       
-      <div className="flex gap-6 mt-[126px] p-3 w-full max-w-[1248px] justify-center items-center border-b-[1px] border-black/25">
+      <div className="flex custom-gap-6 mt-[126px] p-3 w-full max-w-[1248px] justify-center items-center border-b-[1px] border-black/25">
         {SHOP_OPTIONS.map((item, index) => (
           <p
           onClick={() => setClicked(index)}
@@ -45,7 +45,7 @@ const ShopUi = ({ modal, canScroll,setModal }) => {
       <div className="w-full flex h-fit gap-2">
      
         {SHOP_OPTIONS[clicked].links.map((item, index) => (
-          <Link onClick={(() => setModal((false)))} href={`${domain}${item.link}`} key={index} className="w-fit h-fit flex flex-col gap-3">
+          <Link onClick={(() => setModal((false)))} href={`${domain}${item.link}`} key={index} className="w-fit h-fit flex flex-col custom-gap-3">
             <Image
               src={item.image}
               width={222}

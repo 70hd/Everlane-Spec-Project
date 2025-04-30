@@ -25,7 +25,7 @@ const Input = ({
   };
 
   return (
-    <section className="flex flex-col gap-3 w-full">
+    <section className="flex flex-col custom-gap-3 w-full">
       {label && <label className="w-full" htmlFor={id}>{label}</label>}
       {error && <p id={`${id}-error`} className="w-full text-red-500">{error}</p>}
       {version.toLowerCase() === "message" ? (
