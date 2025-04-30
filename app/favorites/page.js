@@ -49,7 +49,7 @@ const Favorites = () => {
   if (!hasMounted) return null;
 
   return (
-    <main className="flex flex-col custom-gap-9 dynamic-padding">
+    <main className={`flex flex-col custom-gap-9 ${!authData.loggedIn ? "dynamic-padding" : "dynamic-x-padding"}`}>
       <h1>
         {!authData.loggedIn
           ? "Please log in to view your favorite products."
